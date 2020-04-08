@@ -8,10 +8,8 @@ app = Flask(__name__)
 def hello():
     if request.method == 'POST':
         try:
-            place_name = request.form['name']
-            city = request.form['city']
-            state = request.form['state']
-            place = place_name + ',' + city + ',' + state
+            place_name = request.form['name'] # Name, city, state are all variables from the 
+            place = place_name
 
             station_name, wheelchair_accessible = find_stop_near(place_name)
             print(station_name, wheelchair_accessible)
@@ -24,4 +22,3 @@ def hello():
         except:
             return render_template('hello.html', error=True)
     return render_template('hello.html', error=None)
-   

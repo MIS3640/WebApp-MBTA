@@ -31,11 +31,11 @@ def get_lat_long(place_name):
     for Mapquest Geocoding  API URL formatting requirements.
     """
     place = place_name.replace(' ', '%20')
-    url = '{}?key={}&location={}'.format(MAPQUEST_BASE_URL, MAPQUEST_API_KEY, place)
+    url = '{}?key={}&location={}'.format(MAPQUEST_BASE_URL, MAPQUEST_API_KEY, place) # access map quest
     print(url)
     place_json = get_json(url)
-    lat = place_json['results'][0]['locations'][0]['latLng']['lat']
-    lon = place_json['results'][0]['locations'][0]['latLng']['lng']
+    lat = place_json['results'][0]['locations'][0]['latLng']['lat'] # pulls latitude from JSON results
+    lon = place_json['results'][0]['locations'][0]['latLng']['lng'] # Longitude
     print(lat, lon)
     return lat, lon
 
@@ -46,13 +46,13 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-    url = '{}?api_key={}&filter[latitude]={}&filter[longitude]={}&sort=distance'.format(MBTA_BASE_URL, MBTA_API_KEY, latitude, longitude)
+    url = '{}?api_key={}&filter[latitude]={}&filter[longitude]={}&sort=distance'.format(MBTA_BASE_URL, MBTA_API_KEY, latitude, longitude) # use cordinants from 
     print(url)
-    station_json = get_json(url)
-    pprint(station_json)
-    station_name = station_json['data'][0]['attributes']['name']
+    station_json = get_json(url) # url from MBTA, to pull station
+    print(station_json)
+    station_name = station_json['data'][0]['attributes']['name'] # nearest station name
     print(station_name)
-    wheelchair_accessible = station_json['data'][0]['attributes']['wheelchair_boarding']
+    wheelchair_accessible = station_json['data'][0]['attributes']['wheelchair_boarding'] # pulls wheelchair discription from JSON
     return station_name, wheelchair_accessible
     
     
@@ -60,5 +60,5 @@ def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
-    return get_nearest_station(*get_lat_long(place_name))
+    return get_nearest_station(*get_lat_long(place_name)) # return to tie it all together. 
 
