@@ -39,42 +39,36 @@ def get_lat_lng(place_name):
     return lat, lng
 
 
-def get_nearest_station(latitude, longitude):
+def get_nearest_station(lat, lng):
     """
     Given latitude and longitude strings, return a (station_name, wheelchair_accessible)
     tuple for the nearest MBTA station to the given coordinates.
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-    url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance/stops'
+    url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={lat}&filter[longitude]={lng}&filter[radius]=0.02&sort=distance&page[limit]=1'
     response_data = get_json(url)
-    return response_data
+    station_name, wheelchair_accessible = response_data['data'][0]['attributes']['name'], response_data['data'][0]['attributes']['wheelchair_boarding']
+
+    return station_name, wheelchair_accessible
 
 def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
-    pass
-
+    lat, lng = get_lat_lng(place_name)
+    station_name, wheelchair_accessible = get_nearest_station(lat, lng)
+    return station_name, wheelchair_accessible
 
 def main():
     """
     You can test all the functions here
     """
-    # url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=Babson%20College'
-    # response_data = get_json(url)
-    # a = response_data["results"][0]["locations"][0]['displayLatLng']
-    # print(type(a))
-    # pprint(response_data)
-    lat, lng = get_lat_lng('Boston Common')
-    print(f'latitude:{lat}, longtitude:{lng}')
-    # print(get_nearest_station(lat, lng)
-
-    # url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance'
-    url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={lat}&filter[longitude]={lng}/stops/data/{1}'
-    response_data = get_json(url)
-    pprint(response_data)
-
+    # lat, lng = get_lat_lng('Cleveland Circle')
+    # print(f'latitude:{lat}, longtitude:{lng}')
+    # station_name, wheelchair_accesible = get_nearest_station(lat, lng)
+    # print(station_name, wheelchair_accesible)
+    print(find_stop_near('Cleveland Circle'))
 
 if __name__ == '__main__':
     main()
