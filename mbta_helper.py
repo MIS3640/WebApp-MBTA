@@ -70,7 +70,7 @@ def get_nearest_station(latitude, longitude):
     """
     url = f'https://api-v3.mbta.com/stops?api_key=9d7fbfd56c164a2bbedb3691a1a79949&filter%5Blatitude%5D='\
           +str(latitude)+'&filter%5Blongitude%5D='\
-          +str(longitude)
+          +str(longitude) + '&sort=distance'
     response_data = get_json(url)
     #pprint(response_data) # ! THIS IS TO LIST OUT ALL OF THE LOCATIONS
     if response_data["data"] == []:
@@ -101,7 +101,7 @@ def main():
     """
     You can test all the functions here
     """
-    find_stop_near("129 Tremont St, Boston, MA 02108")
+    find_stop_near()
 
 if __name__ == '__main__':
     main()
