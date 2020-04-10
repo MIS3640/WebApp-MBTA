@@ -11,12 +11,12 @@
 
     <p>Nearest MBTA station: {{ station_name }}</p>
     
-    {% if schedule %}
-    <p>Next Arrival Time: {{ arrival }}</p>
-    {% endif %}
-
     {% if wheelchair %}
     <p>Wheelchair Accesability: {{ wheelchair_Accessibility }}</p>
+    {% endif %}
+    
+    {% if schedule %}
+    <p>Next Arrival Time: {{ arrival }}</p>
     {% endif %}
 
     <br>
