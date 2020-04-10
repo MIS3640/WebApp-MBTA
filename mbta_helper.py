@@ -4,7 +4,9 @@ from pprint import pprint
 
 # Useful URLs (you need to add the appropriate parameters for your requests)
 MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
-MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
+MBTA_BASE_URL_STOPS = "https://api-v3.mbta.com/stops"
+MBTA_BASE_URL_SCHEDULES = "https://api-v3.mbta.com/schedules"
+
 
 # Your API KEYS (you need to use your own keys - very long random characters)
 MAPQUEST_API_KEY = "oclty3rBpodkIo8cppeUJ4R3NVJNYVXd"
@@ -46,19 +48,51 @@ def get_nearest_station(lat, lng):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-    url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={lat}&filter[longitude]={lng}&filter[radius]=0.02&sort=distance&page[limit]=1'
+    url = f'{MBTA_BASE_URL_STOPS}?api_key={MBTA_API_KEY}&filter[latitude]={lat}&filter[longitude]={lng}&filter[radius]=0.02&sort=distance&page[limit]=1'
     response_data = get_json(url)
-    station_name, wheelchair_accessible = response_data['data'][0]['attributes']['name'], response_data['data'][0]['attributes']['wheelchair_boarding']
+    try:
+        id = response_data['data'][0]['id']
+        station_name = response_data['data'][0]['attributes']['name']
+        wheelchair_code = response_data['data'][0]['attributes']['wheelchair_boarding']
+        wheelchair_accessible = wheelchair_accesibility(wheelchair_code)
+    except:
+        id = ''
+        station_name = ''
+        wheelchair_accessible = ''
+ 
+    return id, station_name, wheelchair_accessible
 
-    return station_name, wheelchair_accessible
+def get_schedule(id, limit=1):
+    url = f'{MBTA_BASE_URL_SCHEDULES}?api_key={MBTA_API_KEY}&filter[stop]={id}&sort=arrival_time&page[limit]={limit}'
+    response_data = get_json(url)
+    time = []
+    for i in range(limit):
+        time.append(response_data['data'][i]['attributes']['arrival_time'])
+
+    arrival = arrival_time(time)
+    return arrival
+
+def arrival_time(time_list):
+    for i, time in enumerate(time_list):
+        time_list[i] = time[:19].replace('T', ' ')
+
+    return time_list
+
+def wheelchair_accesibility(code):
+    if code == 0:
+        return 'No information'
+    elif code == 1:
+        return 'Accessible'
+    elif code == 2:
+        return 'Inaccessible'
 
 def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
     lat, lng = get_lat_lng(place_name)
-    station_name, wheelchair_accessible = get_nearest_station(lat, lng)
-    return station_name, wheelchair_accessible
+    id, station_name, wheelchair_accessible = get_nearest_station(lat, lng)
+    return id, station_name, wheelchair_accessible
 
 def main():
     """
@@ -66,9 +100,17 @@ def main():
     """
     # lat, lng = get_lat_lng('Cleveland Circle')
     # print(f'latitude:{lat}, longtitude:{lng}')
-    # station_name, wheelchair_accesible = get_nearest_station(lat, lng)
-    # print(station_name, wheelchair_accesible)
-    print(find_stop_near('Cleveland Circle'))
+    # id, station_name, platform, wheelchair_accessible = get_nearest_station(lat, lng)
+    # print(station_name, wheelchair_accessible)
+
+    # url = f'{MBTA_BASE_URL_STOPS}?api_key={MBTA_API_KEY}&filter[latitude]={lat}&filter[longitude]={lng}&filter[radius]=0.02&sort=distance&page[limit]=1'
+    # response_data = get_json(url)
+
+    # pprint(response_data)
+
+    # id, station_name, wheelchair_accessible = find_stop_near('Cleveland Circle')
+    # arrival = get_schedule(id,3)
+    # print(arrival)
 
 if __name__ == '__main__':
     main()

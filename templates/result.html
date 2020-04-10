@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MBTA Station Finder Result</title>
+  </head>
+
+  <body>
+    <h1>Result</h1>
+    <h3 style="color: palevioletred;">Your location is {{ Location }}! Here are your nearest MBTA info :)</h3>
+
+    <p>Nearest MBTA station: {{ station_name }}</p>
+    
+    {% if schedule %}
+    <p>Next Arrival Time: {{ arrival }}</p>
+    {% endif %}
+
+    {% if wheelchair %}
+    <p>Wheelchair Accesability: {{ wheelchair_accessability }}</p>
+    {% endif %}
+
+    <br>
+
+    <a href="{{ url_for('index')  }}">Home</a>
+    <br>
+    <a href="{{ url_for('find')  }}">Find more</a>
+  </body>
+</html>

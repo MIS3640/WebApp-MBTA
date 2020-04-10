@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MBTA Station Finder Form</title>
+  </head>
+  <body>
+    <h1>Find Nearest MBTA Station</h1>
+    <form method="POST" name="find_nearest_MBTA">
+      {% if error %}
+      <p style="color:orangered">Unfortunately, there is no MBTA station near you :ccc</p>
+      {% endif %}
+      <p>
+          Please enter your location:
+      </p>
+      <p>
+          <input type="text" size="40" name="Location"/>
+      </p>
+      <p>
+          Choose extra info to display: <br>
+          <input type="checkbox" name="extra_info1" value="wheelchair">Wheelchair Accessability</input><br>
+          <input type="checkbox" name="extra_info2" value="schedule">Next Arrival Time</input>
+      </p>
+      <p>
+        <input type="submit" value="Submit"/>
+      </p>
+    </form>
+  </body>
+</html>
