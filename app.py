@@ -15,7 +15,7 @@ def index():
 def find():
     if request.method == 'POST':
         place = str(request.form['Location'])
-        id, station_name, wheelchair_accessability = find_stop_near(place)
+        id, station_name, wheelchair_Accessibility = find_stop_near(place)
         try:
             arrival = ', '.join(get_schedule(id))
         except:
@@ -40,7 +40,7 @@ def find():
         
         if station_name:
             return render_template('result.html', 
-            Location=place, station_name=station_name, wheelchair_accessability=wheelchair_accessability, arrival=arrival,
+            Location=place, station_name=station_name, wheelchair_Accessibility=wheelchair_Accessibility, arrival=arrival,
             wheelchair=wheelchair, schedule=schedule)
         else:
             return render_template('form.html', error=True)
