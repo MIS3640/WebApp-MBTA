@@ -1,10 +1,10 @@
-# Useful URLs (you need to add the appropriate parameters for your requests)
-MAPQUEST_BASE_URL = "http://open.mapquestapi.com/geocoding/v1/address"
-MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
+# # Useful URLs (you need to add the appropriate parameters for your requests)
+# MAPQUEST_BASE_URL = "http://open.mapquestapi.com/geocoding/v1/address"
+# MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 
-# Your API KEYS (you need to use your own keys - very long random characters)
-MAPQUEST_API_KEY = "XbNTIQMhKz0tClvI7KVdJnGxdwp9Esvu"
-MBTA_API_KEY = "ebcc79c2c7dc44d5b6f012325e8692d1"
+# # Your API KEYS (you need to use your own keys - very long random characters)
+# MAPQUEST_API_KEY = "XbNTIQMhKz0tClvI7KVdJnGxdwp9Esvu"
+# MBTA_API_KEY = "ebcc79c2c7dc44d5b6f012325e8692d1"
 
 
 # A little bit of scaffolding if you want to use it
