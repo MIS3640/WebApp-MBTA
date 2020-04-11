@@ -7,16 +7,16 @@
 
   <body>
     <h1>Result</h1>
-    <h3 style="color: palevioletred;">Your location is {{ Location }}! Here are your nearest MBTA info :)</h3>
+    <h3 style="color: palevioletred;">Your location is {{ Location }}. <br> Here are your nearest MBTA info :)</h3>
 
-    <p>Nearest MBTA station: {{ station_name }}</p>
+    <p><b>Nearest MBTA station:</b> {{ station_name }}</p>
     
     {% if wheelchair %}
-    <p>Wheelchair Accesability: {{ wheelchair_Accessibility }}</p>
+    <p><b>Wheelchair Accesability:</b> {{ wheelchair_Accessibility }}</p>
     {% endif %}
     
     {% if schedule %}
-    <p>Next Arrival Time: {{ arrival }}</p>
+    <p><b>Next Arrival Time:</b> {{ arrival }}</p>
     {% endif %}
 
     <br>
