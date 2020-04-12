@@ -8,7 +8,7 @@ app = Flask(__name__)
 def location():
     if request.method == 'POST':
         location = request.form["location"]
-        stop, wheelchair_boarding, rating = find(location)
-        return render_template("result.html", stop=stop, wheelchair= wheelchair_boarding, rating=rating)
+        stop, wheelchair_boarding
+        return render_template("result.html", stop=stop, wheelchair= wheelchair_boarding)
     else:
         return render_template("index.html")
