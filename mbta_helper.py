@@ -37,8 +37,17 @@ def get_lat_long(place_name):
     latitude = response_data["results"][0]["locations"][0]['displayLatLng']['lat']
     longitude = response_data["results"][0]["locations"][0]['displayLatLng']['lng']
     return latitude, longitude
- 
 
+def wheelchair_boarding(value):
+    """
+    Translates wheelchair boarding value to meaning.
+    """
+    if value == 0:
+        return "No Information"
+    elif value == 1:
+        return "Accessible"
+    else:
+        return "Inaccessible"
 
 def get_nearest_station(latitude, longitude):
     """
@@ -51,8 +60,10 @@ def get_nearest_station(latitude, longitude):
     response_data = get_json(url)
     id = response_data['data'][0]['id']
     station_name = response_data['data'][0]['attributes']['name']
-    wheelchair_accessible = response_data['data'][0]['attributes']['wheelchair_boarding']
+    value = response_data['data'][0]['attributes']['wheelchair_boarding']
+    wheelchair_accessible = wheelchair_boarding(value)
     return id, station_name, wheelchair_accessible
+
 
 def find_stop_near(place_name):
     """
@@ -67,14 +78,16 @@ def main():
     """
     You can test all the functions here
     """
-    lat, lng = get_lat_long('Cleveland Circle')
-    print(f'latitude:{lat}, longtitude:{lng}')
-    id, station_name, wheelchair_accessible = get_nearest_station(lat, lng)
-    print(station_name, wheelchair_accessible)
-   
-    url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={lat}&filter[longitude]={lng}&filter[radius]=0.02&sort=distance&page[limit]=1'
-    response_data = get_json(url)
+    # url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={lat}&filter[longitude]={lng}&filter[radius]=0.02&sort=distance&page[limit]=1'
+    # response_data = get_json(url)
 
-    id, station_name, wheelchair_accessible = find_stop_near('Cleveland Circle')
+    lat, long = get_lat_long('Boston')
+    print(f'latitude:{lat}, longtitude:{long}')
+    id, station_name, wheelchair_accessible = get_nearest_station(lat, long)
+    print(id,station_name, wheelchair_accessible)
+
+    # id, station_name, wheelchair_accessible = find_stop_near('Boston')
+
+
 if __name__ == '__main__':
     main()

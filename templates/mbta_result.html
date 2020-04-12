@@ -7,9 +7,9 @@
 
   <body>
     <h1>Results</h1>
-    <p style="color:peru">Your current location is {{location}}.</p>
-    <p>Nearest MBTA station: {{station_name}}</p>
-    <p>Wheelchair Accesability:{{wheelchair_accessibl}}</p>
+    <p>Your current location is <span style = "color: royalblue">{{Location}}</span>.</p>
+    <p>Nearest MBTA station: <span style = "color: royalblue"> {{station_name}}</span>.</p>
+    <p>Wheelchair Accesability: <span style = "color: royalblue">{{wheelchair_accessible}}</span>.</p>
     
     <br>
     <a href = "{{ url_for('index')  }}"> Direct to Home</a>
