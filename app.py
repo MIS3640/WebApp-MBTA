@@ -27,8 +27,7 @@ def station():
  
         if station_name:
             return render_template(
-                "mbtaresult.html", Location = place, station_name=station_name, wheelchair_accessible=wheelchair_accessible
-            )
+                "mbtaresult.html", Location = place, station_name=station_name, wheelchair_accessible=wheelchair_accessible)
         else: 
             return render_template('mbtaform.html', error=True)
     else:
