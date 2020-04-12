@@ -47,7 +47,7 @@ def get_nearest_station(latitude, longitude):
     latitude = latLong.get('lat')
     longitude = latLong.get('lng')
     url3 = 'https://api-v3.mbta.com/stops?api_key={}&filter[latitude]={}&filter[longitude]={}&sort=distance'.format(MBTA_API_KEY, latitude, longitude)
-    y = urllib.request.urlopen(url2)
+    y = urllib.request.urlopen(url3)
     response_text3 = y.read().decode('utf-8')
     response_data_3 = json.loads(response_text2)
     stopName = (response_data_3['data'][0]["attributes"]['name'])
