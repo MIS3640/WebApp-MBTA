@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>MBTA Locator</title>
+</head>
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background-color: aliceblue;
+    }
+    h1 {
+      background-color:aliceblue;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .column {
+      float: center;
+      width: 50%;
+      padding: 15px;
+    }
+    .row:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 100%;
+      }
+    }
+  </style>
+  <body>
+    <h1>Results</h1>
+    <p>The nearest MBTA station to {{ place_name }} is {{stop}}.</p>
+    <p>Wheelchair Accessibility: {{wheelchair}}</p>
+    <p>Key:</p>
+    <p>0 = Not wheelchair accessible</p>
+    <p>1 = Wheelchair accessible</p>
+    <p>2 = No information given</p>
+  </body>
+</html>

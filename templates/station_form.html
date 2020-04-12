@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>MBTA Locator</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: aliceblue;
+}
+h1 {
+  background-color:aliceblue;
+  padding: 20px;
+  text-align: center;
+}
+
+.column {
+  float: center;
+  width: 50%;
+  padding: 15px;
+}
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<div class='header'>
+  <h1>Locator</h1>
+
+<div class="row">
+  <div class="column">
+    <h2>Locate The Nearest MBTA Subway or Bus Station</h2>
+    <form method="POST" name="locator">
+      {% if error %}
+      <p style="color:red">This location does not have a station nearby.</p>
+      {% endif %}
+      
+      <p>
+        <input type="text" size="4" name="place name" />
+      </p>
+      <p>
+        <input type="submit" value="Find a Stop" />
+      </p>
+    </form>
+  </div>
+</div>
+
+    
+    
+</body>
+</html>
