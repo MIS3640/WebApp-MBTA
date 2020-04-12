@@ -1,7 +1,12 @@
 import urllib.request
+import urllib.parse
 import json
 from pprint import pprint
-import urllib.parse
+
+
+# Useful URLs (you need to add the appropriate parameters for your requests)
+MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
+MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 
 # print(response_data["results"][0]["locations"][0]['postalCode'])
 
@@ -76,7 +81,7 @@ def find_stop_near(place_name):
     latitude = str(latLong[0])
     longitude = str(latLong[1])
     return get_nearest_station(latitude, longitude)
-# pprint(find_stop_near('Back Bay'))
+pprint(find_stop_near('Back Bay'))
 
 
 def main():
