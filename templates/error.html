@@ -8,15 +8,8 @@
 
 <body>
     <div class="main" style="background-image: url('./static/images/boston.jpg')">
-        <h1>Hello</h1>
-        <div>This is the MBTA Stop Finder.</div>
-        {% from "_formhelpers.html" import render_field %}
-        <form action="/nearest" method="post" class="mbtaForm">
-        <dl>
-            {{ render_field(form.placename) }}
-        </dl>
-        <input type=submit value="Search MBTA Stops" class="submitButton">
-        </form>
+        <div>No MBTA stops found. Please enter another location.</div>
+        <a href="/">Back to home</a>
     </div>
 </body>
 </html>

@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: black;
+}
+
+.mbtaForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.formInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.submitButton {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background-color: rgba(206, 186, 73, 0.596);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
