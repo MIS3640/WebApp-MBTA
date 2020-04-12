@@ -39,7 +39,7 @@ def nearest():
     if request.method == "POST":
         place = request.form["Location"]
         id, station_name, wheelchair_accessible = find_stop_near(place)
-        new_profile = Profile(current_location = place)
+        new_profile = Profile(current_location=id, nearest_mbta = station_name, accessibility=wheelchair_accessible)
 
         try:
             db.session.add(new_profile)
