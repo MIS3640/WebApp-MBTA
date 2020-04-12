@@ -1,21 +1,14 @@
-# Useful URLs (you need to add the appropriate parameters for your requests)
-MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
-MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
-
-# Your API KEYS (you need to use your own keys - very long random characters)
-MAPQUEST_API_KEY = "xisuxWXkZJL4iIUV6AfIYiZtBj9rCEQQ"
-MBTA_API_KEY = "1f6d0f7abcf04b989e7d8fb5942f2ace"
-
 import urllib.request
 import json
 from pprint import pprint
+
+# MAPQUEST_API_KEY = 'xisuxWXkZJL4iIUV6AfIYiZtBj9rCEQQ'
 
 def get_json(url):
     """
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
     """
-    MAPQUEST_API_KEY = 'xisuxWXkZJL4iIUV6AfIYiZtBj9rCEQQ'
     f = urllib.request.urlopen(url)
     response_text = f.read().decode('utf-8')
     response_data = json.loads(response_text)
@@ -28,13 +21,13 @@ def get_lat_long(place_name):
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
-    url2 = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={location}'
-    f = urllib.request.urlopen(url2)
-    response_text2 = f.read().decode('utf-8')
-    response_data2 = json.loads(response_text)
-    latLong = (response_data2["results"][0]["locations"][0]["postalCode"])
-    print('The Latitude Is: ',latLong.get("lat"))
-    print('The Longitude Is: ',latLong.get("lng"))
+    MAPQUEST_API_KEY = 'xisuxWXkZJL4iIUV6AfIYiZtBj9rCEQQ'
+    location = place_name.replace(' ', '+')
+    url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={location}'
+    f = urllib.request.urlopen(url)
+    response_text = f.read().decode('utf-8')
+    response_data = json.loads(response_text)
+    latLong = (response_data["results"][0]["locations"][0]["postalCode"])
 
 def get_nearest_station(latitude, longitude):
     """
@@ -46,32 +39,32 @@ def get_nearest_station(latitude, longitude):
     MBTA_API_KEY = '1f6d0f7abcf04b989e7d8fb5942f2ace'
     latitude = latLong.get('lat')
     longitude = latLong.get('lng')
-    url3 = 'https://api-v3.mbta.com/stops?api_key={}&filter[latitude]={}&filter[longitude]={}&sort=distance'.format(MBTA_API_KEY, latitude, longitude)
-    y = urllib.request.urlopen(url3)
-    response_text3 = y.read().decode('utf-8')
-    response_data_3 = json.loads(response_text2)
-    stopName = (response_data_3['data'][0]["attributes"]['name'])
-    wheelchair_accessible = (response_data_3['data'][0]["attributes"]['wheelchair_boarding'])
-    print('The Closest Stop To You is: ',stopName)
-    
+    url = 'https://api-v3.mbta.com/stops?api_key={}&filter[latitude]={}&filter[longitude]={}&sort=distance'.format(MBTA_API_KEY, latitude, longitude)
+
+
 def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
+    url2 = urllib.request.urlopen(url)
+    response_text = url2.read().decode('utf-8')
+    response_data = json.loads(response_text)
+    stopName = (response_data['data'][0]["attributes"]['name'])
+    
+    wheelchair_accessible = (response_data['data'][0]["attributes"]['wheelchair_boarding'])        
     if wheelchair_accessible == 1:
         print('Wheelchairs Accessible')
     elif wheelchair_accessible == 2:
         print('Wheelchairs Inaccessible')
     else:
-        print("No Information Found")
+        print("No Information Available")
 
 def main():
     """
     You can test all the functions here
     """
-    location = input('Please the location:')
+    location = input('Please enter the location address or name:')
     print(get_lat_long(location))
-    print(find_stop_near(location))
 
 if __name__ == '__main__':
     main()

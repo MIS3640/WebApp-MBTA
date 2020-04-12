@@ -5,10 +5,10 @@ from the_map import find
 app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
-def location():
+def theLocation():
     if request.method == 'POST':
-        location = request.form["location"]
-        stop, wheelchair_boarding
+        place_name = request.form["location"]
+        stop, wheelchair_boarding = find_stop_near(place_name)
         return render_template("result.html", stop=stop, wheelchair= wheelchair_boarding)
     else:
         return render_template("index.html")
