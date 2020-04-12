@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Amazing app to help you find nearest MBTA station</title>
+    <title>Welcome</title>
 </head>
 <body>
+    <h1> Hello {{ name }}, Nice to meet you!</h1>
+    <h1>Select Bottom link to find out nearest MBTA to your location:</h1>
+    <a href="{{ url_for('nearest_mbta') }}">Nearest MBTA</a>
 
 </body>
 </html>
