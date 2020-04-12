@@ -38,6 +38,16 @@ def get_lat_long(place_name):
     lat = response_data["results"][0]["locations"][0]['displayLatLng']['lat']
     return lat, long
  
+def wheelchair(number):
+    """
+    Show the accessibility of wheelchair
+    """
+    if number ==0:
+         return "No info"
+    elif number==1:
+        return "Yes"
+    else: 
+        return "No"
 
 
 def get_nearest_station(latitude, longitude):
@@ -51,7 +61,8 @@ def get_nearest_station(latitude, longitude):
     response_data = get_json(url)
     ID = response_data['data'][0]['id']
     station_name = response_data['data'][0]['attributes']['name']
-    wheelchair_accessible = response_data['data'][0]['attributes']['wheelchair_boarding']
+    wheelchair_number = response_data['data'][0]['attributes']['wheelchair_boarding']
+    wheelchair_accessible = wheelchair(wheelchair_number)
     return ID, station_name, wheelchair_accessible
 
 
