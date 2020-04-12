@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Amazing app to help you find nearest MBTA station</title>
+    <link rel = 'stylesheet' href = "{{ url_for('static', filename = 'css/main.css') }}">
 </head>
+
 <body>
+    <a href="{{ url_for('hello') }}" style ="font-size: 40px">Welcome!</a>
+
+    <br>
+
+    <a href="{{ url_for('station') }}" style="font-size: 40px">Locate the MBTA Station Near You</a>
+    <img src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/IoXiw90reIFToBCYLDR9paziUJ8=/1440x0/arc-anglerfish-arc2-prod-bostonglobe.s3.amazonaws.com/public/C2H5U2R3SQI6TI4SR3LBLSWG2I.jpg" alt="picture">
+
 
 </body>
 </html>
