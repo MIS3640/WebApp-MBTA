@@ -30,8 +30,12 @@ def get_lat_long(place_name):
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
+    place_name = place_name.replace(" ", "%20") + ",%20Boston,%20MA"
     latLng = get_json(f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={place_name}")["results"][0]["locations"][0]["latLng"]
-    return latLng["lat"], latLng["lng"]
+    if latLng["lat"] == 42.52277 and latLng["lng"] == -70.91888:
+        return "n/a", "n/a"
+    else:
+        return latLng["lat"], latLng["lng"]
 
 def get_nearest_station(latitude, longitude):
     """
@@ -61,8 +65,10 @@ def main():
     """
     You can test all the functions here
     """
-    print(find_stop_near("Faneuil_Hall,Boston,MA"))
-    print(find_stop_near("Fenway_Park,Boston,MA"))
+    print(find_stop_near("Fenway Park"))
+    print(find_stop_near("Faneuil Hall"))
+    print(find_stop_near("1356 Dorchester Ave"))
+    
 
 if __name__ == '__main__':
     main()
