@@ -22,7 +22,8 @@ def hello(name=None):
 
 @app.route('/home/index.html')
 def index():
-    return render_template('index.html')
+    name = hello_name()
+    return render_template('index.html', name = name)
 
 @app.route("/nearest_mbta/", methods=["GET", "POST"])
 def nearest_mbta():
