@@ -22,8 +22,8 @@ def hello(name=None):
 
 @app.route('/home/index.html')
 def index():
-    name = hello_name()
-    return render_template('index.html', name = name)
+    name = hello(name)
+    return render_template('index.html', name=name)
 
 @app.route("/nearest_mbta/", methods=["GET", "POST"])
 def nearest_mbta():
@@ -35,5 +35,9 @@ def nearest_mbta():
             return render_template("nearest_mbta_result.html", location=location, station_name=station_name, wheelchair_accessible=wheelchair_accessible)
         else:
             return render_template("nearest_mbta_form.html", error=True)
+
     return render_template("nearest_mbta_form.html", error=None)
 
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('error.html'), 500
