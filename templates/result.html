@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTA Helper App</title>
+
+    <style type='text/css'>
+    h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size:20pt;
+        color:darkolivegreen;
+        font-weight: bold;
+    }
+    body{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 14pt;
+        color:black
+        }
+    .location{
+        font-weight:bold;
+        color:seagreen;
+    }
+    .results{
+        font-weight: bold;
+        font-style: italic;
+        color:darkslategrey;
+    }   
+    #home{
+        color:midnightblue;
+        cursor:pointer;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight:bold;
+    } 
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+    <p>
+        The location you entered is <span class='location'>{{ location }}</span>.
+    </p>
+    <p>
+        The nearest MBTA station is: <span class='results'>{{ MBTA_station }}</span>
+    </p>
+    <p>
+        Is it wheelchair accesible? <span class='results'>{{ wheelchair_accesibility }}</span>
+    </p>
+
+    <br>
+
+    <p>
+        Want to enter another location? 
+    </p>
+    <p>
+        <a href="{{ url_for('mbta_helper') }}"><span id='home'>Bring me back to Home!</span></a>
+    </p>
+    
+</body>
+</html>
