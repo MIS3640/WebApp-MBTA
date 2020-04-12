@@ -7,11 +7,11 @@
 
   <body>
     <h1>MBTA Location Result</h1>
-    <p>Your current location is {{location}}.</p>
+    <p style="color:purple">Your current location is {{Location}}.</p>
     <p style="color:red">The Closest MBTA Location is: {{station_name}}</p>
-    <p>Wheelchair Accesability:{{wheelchair_accessibl}}</p>
-    
+    <p style="color:salmon">Wheelchair Accesible? {{wheelchair_accessible}}</p>
+    <a href = "{{ url_for('index')  }}">Home</a>
     <br>
-    <a href = "{{ url_for('index')  }}"> Direct to Home</a>
+    <img src="https://www.androidguys.com/wp-content/uploads/2017/12/Where-are-you.jpg" alt="picture 2">
   </body>
 </html>
