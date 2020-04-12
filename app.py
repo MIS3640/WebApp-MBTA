@@ -20,9 +20,8 @@ def hello(name=None):
             return render_template('home.html', error=True)
     return render_template('home.html', error=None, name=name)
 
-@app.route('/home/index.html')
+@app.route('/home/index')
 def index():
-    name = hello(name)
     return render_template('index.html', name=name)
 
 @app.route("/nearest_mbta/", methods=["GET", "POST"])
@@ -41,3 +40,7 @@ def nearest_mbta():
 @app.errorhandler(500)
 def page_not_found(e):
     return render_template('error.html'), 500
+
+@app.route("/project_writeup/")
+def project_writeup():
+    return render_template('project_writeup.html')
