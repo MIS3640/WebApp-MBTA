@@ -19,7 +19,7 @@ def hello(name=None):
 @app.route("/Closest MBTA Station/", methods=["GET", "POST"])
 def station():
     '''
-    Find the nearest station.
+    Identify the closest station.
     '''
     if request.method == "POST":
         place = request.form["Location"]
