@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MBTA Result of Location</title>
+  </head>
+
+  <body>
+    <h1>MBTA Location Result</h1>
+    <p>Your current location is {{location}}.</p>
+    <p style="color:red">The Closest MBTA Location is: {{station_name}}</p>
+    <p>Wheelchair Accesability:{{wheelchair_accessibl}}</p>
+    
+    <br>
+    <a href = "{{ url_for('index')  }}"> Direct to Home</a>
+  </body>
+</html>
