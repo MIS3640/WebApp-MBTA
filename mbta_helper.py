@@ -7,11 +7,8 @@ MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
 MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 
 # Your API KEYS (you need to use your own keys - very long random characters)
-MAPQUEST_API_KEY = 	"M7wyf4gSK6OmzjgcfbnkrzpKlKjLgknO"
+MAPQUEST_API_KEY = "M7wyf4gSK6OmzjgcfbnkrzpKlKjLgknO"
 MBTA_API_KEY = "ba051b07c46f4b2191bd16ae02fa5929"
-
-
-# A little bit of scaffolding if you want to use it
 
 def get_json(url):
     """
@@ -30,9 +27,9 @@ def get_lat_long(place_name):
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
-    place_name = place_name.replace(" ", "%20") + ",%20Boston,%20MA"
+    place_name = place_name.replace(" ", "%20") + ",%20Boston,%20MA" # Formats inputted street address
     latLng = get_json(f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={place_name}")["results"][0]["locations"][0]["latLng"]
-    if latLng["lat"] == 42.52277 and latLng["lng"] == -70.91888:
+    if latLng["lat"] == 42.52277 and latLng["lng"] == -70.91888: # Due to l33 "%20Boston,%20MA", this latLng is returned even with garbage input
         return "n/a", "n/a"
     else:
         return latLng["lat"], latLng["lng"]
@@ -60,15 +57,8 @@ def find_stop_near(place_name):
         accessible_info = "inaccessible"
     return f"The nearest station to {place_name} is {response_data[0]}, and it is {accessible_info} via wheelchair"
 
-
 def main():
-    """
-    You can test all the functions here
-    """
-    print(find_stop_near("Fenway Park"))
-    print(find_stop_near("Faneuil Hall"))
-    print(find_stop_near("1356 Dorchester Ave"))
-    
+    pass
 
 if __name__ == '__main__':
     main()
