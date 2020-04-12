@@ -90,18 +90,18 @@ def find_stop_near(place_name):
     response_data = get_nearest_station(lat, long)
     print(response_data["name"])
     if response_data["wheelchair_boarding"] == 0:
-        print("No information on wheelchair boarding")
+        return (response_data["name"] + " Code:0")
     elif response_data["wheelchair_boarding"] == 1:
-        print("	Accessible (if trip is wheelchair accessible)")
+        return (response_data["name"] + " Code:1")
     else:
-        print("Inacessible")
+        return (response_data["name"] + " Code:2")
 
-
-def main():
+def __main__():
     """
     You can test all the functions here
     """
     find_stop_near()
 
-if __name__ == '__main__':
-    main()
+
+
+
