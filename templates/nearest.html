@@ -8,25 +8,23 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="templates/styling.css" />
-    <title>Home</title>
+    <style>
+      body {
+        text-align: center;
+        background-color: blanchedalmond;
+      }
+      h1 {
+        color: crimson;
+      }
+      p {
+        text-align: center;
+      }
+      img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
   </head>
-  <style>
-    body {
-      text-align: center;
-      background-color: blanchedalmond;
-    }
-    h1 {
-      color: crimson;
-    }
-    p {
-      text-align: center;
-    }
-    img {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
   <body>
     <div class="jumbotron">
       <center><h1>MBTA Finder: Find the Closest T Stop Near You!</h1></center>
@@ -40,17 +38,14 @@
         />
       </div>
       <div class="col-6">
-        <p>
-          Please enter an address, we will return the closest MBTA station free
-          of charge!
-        </p>
-        <br />
-        <form method="POST" action="/nearest">
-          <div class="form-group">
-            <center><input type="text" name="address" /></center>
-          </div>
-          <br />
-          <input class="btn btn-primary" type="submit" value="submit" />
+        <p>The closest station is {{ station }}</p>
+        <p>{{ explanation }}</p>
+        <form method="POST" action="/">
+          <input
+            class="btn btn-primary"
+            type="submit"
+            value="Enter another location"
+          />
         </form>
       </div>
       <div class="col-3">
