@@ -9,6 +9,10 @@ from mbta_helper import find_stop_near
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return render_template('hello.html')
+
 
 @app.route('/home/', methods=["GET", "POST"])
 def hello(name=None):
