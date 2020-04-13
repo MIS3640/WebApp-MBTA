@@ -66,14 +66,15 @@ def get_closeststop():
         print('There are no T stops in the list')
 
 
-    # for i in range(len(response_data['data'])):
-    #     if response_data['data'][i]['attributes']['vehicle_type'] == 1:
-    #         closest_stop = response_data['data'][i]['attributes']['name']
-    #         print(closest_stop)
-            
-
 
     
+def main():
+    """
+    You can test all the functions here
+    """
+    get_closeststop()
 
-get_closeststop()
+
+if __name__ == '__main__':
+    main()
 
