@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" name="stop finder">
+      {% if error %}
+      <p style="color:red">This is not a valid location or there are no MBTA stops within half of a mile </p>
+      {% endif %}
+        <h1> What MBTA Station is Near Me?</h1>
+        <p> Please enter an address or location in Boston that you would like to find the nearest MBTA station to:</p>
+        <p> Location: <input type="text" name="place_name" 
+            placeholder="50 Milk St or Harvard Square">
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </form>
+</body>
+</html>
+
+
+
