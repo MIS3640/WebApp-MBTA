@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>MBTA</h1>
+            <p>Hello, here you can find the nearest mbta stop</p>
+        </header>
+        <main>
+            <div class="row">
+                <div class="col">
+                    <h2>{{ stop["name"] }} {{ stop["latitude"] }}, {{ stop["longitude"] }}</h2><a href="{{url_for('index')}}">Go back</a></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>{{ stop["description"] }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>{{ accessibility }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"><a href="{{ google_maps }}">Google Maps</a></div>
+            </div>
+            <div class="row">
+                <div class="col"><a href="{{ street_view }}">Street View</a></div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
