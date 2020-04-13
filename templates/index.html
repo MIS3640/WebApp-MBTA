@@ -10,25 +10,25 @@
 <body>
     <div class="container">
     <div class="jumbotron">    
-        <h1>My first Bootstrap website!</h1>
-        <p>This is going to be a subtitle </p>
+        <h1>Find the Nearest MBTA Station</h1>
+        <p>By Angela Wang</p>
     </div>
 
     <div class="row">
-    <div class="col-sm-6" style="background-color:bisque; font-size: medium;">
-        <a href="{{ url_for('hello') }}">MBTA Map</a>
+    <div class="col-sm-6" style="background-color:bisque;">
+        <a href="{{ url_for('hello') }}" style="font-size: 25px; text-align:center;">MBTA Map</a>
     </div>
           
-    <div class="col-sm-6" style="background-color: coral">
-        <a href="{{ url_for('nearest') }}">Nearest MBTA Station</a>
+    <div class="col-sm-6" style="background-color: lightcyan;">
+        <a href="{{ url_for('nearest') }}" style="font-size: 25px; text-align:center;">Nearest MBTA Station</a>
     </div>
     </div>
     
     <div class="row">
-        <div class="col-sm-6" style="background-color:darkgoldenrod">
+        <div class="col-sm-6" style="background-color:pink">
             <img src="https://www.bostonmagazine.com/wp-content/uploads/sites/2/2019/03/mbta-fare-increase-2019-t.jpg" alt="photo1" />
         </div>
-        <div class="col-sm-6" style="background-color:grey">
+        <div class="col-sm-6" style="background-color:lightgray">
             <img src="https://9to5mac.com/wp-content/uploads/sites/6/2019/06/Twitter-precise-location-tagging.jpg?quality=82&strip=all" alt="photo2"/>
         </div>
     </div>

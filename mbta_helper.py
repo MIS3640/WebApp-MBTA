@@ -12,7 +12,6 @@ MBTA_API_KEY = "eaec5b73c972419f922d0811a1af5bcc"
 
 
 # A little bit of scaffolding if you want to use it
-
 def get_json(url):
     """
     Given a properly formatted URL for a JSON web API request, return

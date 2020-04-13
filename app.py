@@ -1,3 +1,5 @@
+# SQLite Reference: https://www.youtube.com/watch?v=Z1RJmh_OqeA
+
 from flask import Flask, render_template, request, url_for, redirect
 from mbta_helper import find_stop_near
 from flask_sqlalchemy import SQLAlchemy
