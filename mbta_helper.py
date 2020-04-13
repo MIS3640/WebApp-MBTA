@@ -59,9 +59,9 @@ def find_stop_near(place_name):
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
     lat, lng = get_lat_long(place_name)
-    stop_list = get_nearest_station(lat,lng)
-    stop = stop_list[0]
-    return (stop, distance)
+    stopList = get_nearest_station(lat,lng)
+    stop = stopList[0]
+    return stop
 
 
 def main():
