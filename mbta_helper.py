@@ -24,7 +24,6 @@ def get_json(url):
     response_data = json.loads(response_text)
     return response_data
 
-
 def get_lat_lng(place_name):
     ''' Given a place name or address, 
     return a (latitude, longitude) tuple with the coordinates of the given place.
@@ -35,7 +34,6 @@ def get_lat_lng(place_name):
     lat = response_data["results"][0]["locations"][0]['displayLatLng']['lat']
     lng = response_data["results"][0]["locations"][0]['displayLatLng']['lng']
     return lat, lng
-
 
 def get_nearest_station(lat, lng):
     ''' Given latitude and longitude strings, return a (id, station_name, wheelchair_accessible)
