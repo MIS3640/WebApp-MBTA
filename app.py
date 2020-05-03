@@ -45,6 +45,8 @@ def nearest_mbta():
 def page_not_found(e):
     return render_template('error.html'), 500
 
+    
+
 @app.route("/project_writeup/")
 def project_writeup():
     return render_template('project_writeup.html')
