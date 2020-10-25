@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Amazing app to help you find nearest MBTA station</title>
 </head>
-<body>
 
+<body>
+    <h1>Hello!</h1>
+    <form method="POST" name="mbta_station">
+        <!-- {% if error %}
+        <p style="color: red">There is no MBTA station nearby.</p>
+        {% endif %} -->
+        <p>Please enter your location: <input type="text" id="place_name" name="place_name"></p>
+        <p>Route Type: <select name = "route_type" id = "route_type">
+            <option value = "0">Tram, Streetcar, Light rail. Any light rail or street level system within a metropolitan area.</option>
+            <option value = "1">Subway, Metro. Any underground rail system within a metropolitan area.</option>
+            <option value = "2">Rail. Used for intercity or long-distance travel.</option>
+            <option value = "3">Bus. Used for short- and long-distance bus routes.</option>                <option value = "4">Ferry. Used for short- and long-distance boat service.</option>
+        </select></p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
 </body>
+
 </html>
