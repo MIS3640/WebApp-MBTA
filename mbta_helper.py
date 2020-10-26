@@ -6,54 +6,55 @@ MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 MAPQUEST_API_KEY = "6U83snPamoNXW3MWOCNJtwNnvBL6kELF"
 MBTA_API_KEY = "32f72eb4c4054f0597f2d38cf50cffc0"
 
-
 # A little bit of scaffolding if you want to use it
 url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=Babson%20College'
 
+#loading the dependencies
+import urllib.request
+import urllib.parse
+import json
+from pprint import pprint
 
-def get_url (place_name):
+def get_formatted_url (place):
     """Write a function that takes an address or place name as input and 
     returns a properly encoded URL to make a MapQuest geocode request."""
     pass
+    #USE ENCODE FUNCTION
 
 def get_json(url):
     """
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
     """
-    import urllib.request
-    import json
-    from pprint import pprint
 
     f = urllib.request.urlopen(url)
     response_text = f.read().decode('utf-8')
     response_data = json.loads(response_text)
-    pprint(response_data)
+    # pprint(response_data)
 
     return response_data
 
 
 def get_lat_long(place_name):
     """
+    #TODO: change docstring
     Given a place name or address, return a (latitude, longitude) tuple
     with the coordinates of the given place.
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
-    import urllib.request
-    import json
-    from pprint import pprint
 
-    MAPQUEST_API_KEY = "6U83snPamoNXW3MWOCNJtwNnvBL6kELF"
+    place_name = place_name.replace(" ", "%20")
     url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={place_name}'
     
     f = urllib.request.urlopen(url)
     response_text = f.read().decode('utf-8')
     response_data = json.loads(response_text)
     latLng = response_data["results"][0]["locations"][0]['latLng']
-    pprint(latLng)
+    latLng_tuple = [(k,v) for k,v in latLng.items()] #converting dict to list of tuple
+    pprint(latLng_tuple)
 
-    return latLng
+    return latLng_tuple
 
 
 def get_nearest_station(latitude, longitude):
@@ -79,7 +80,8 @@ def main():
     """
     You can test all the functions here
     """
-    pass
+    #Latitude and Longtitude
+    print(get_lat_long("Newbury Street, Boston"))
 
 
 if __name__ == '__main__':
