@@ -51,8 +51,8 @@ def get_lat_long(place_name):
     response_text = f.read().decode('utf-8')
     response_data = json.loads(response_text)
     latLng = response_data["results"][0]["locations"][0]['latLng']
-    latLng_tuple = [(k,v) for k,v in latLng.items()] #converting dict to list of tuple
-    pprint(latLng_tuple)
+    latLng_tuple = tuple(latLng.values()) #converting dict to list of tuple
+    # pprint(latLng_tuple)
 
     return latLng_tuple
 
@@ -64,14 +64,29 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-    pass
+    url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance' #sort by closest distance
+    nearest_station_json = get_json(url) #calling get_json function
+
+    station_wheelchair = nearest_station_json['data'][0]['attributes']['name'],nearest_station_json['data'][0]['attributes']['wheelchair_boarding'] #tuple
+
+    #TODO: not sure if the description is necessary
+    # print('If wheelchair boarding = 0, there is no available information.')
+    # print('If wheelchair boarding = 1, the wheelchair is accessible.')
+    # print('If wheelchair boarding = 2, the wheelchair is inaccessible.\n')
+    
+    return station_wheelchair
 
 
 def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
-    pass
+    #calling previous functions
+    latLng = get_lat_long(place_name)
+    latitude = latLng[0]
+    longitude = latLng[1]
+
+    return get_nearest_station(latitude, longitude)
 
 
 
@@ -80,9 +95,19 @@ def main():
     """
     You can test all the functions here
     """
-    #Latitude and Longtitude
-    print(get_lat_long("Newbury Street, Boston"))
+    place_name = "Newbury Street, Boston"
+    ###Latitude and Longtitude###
+    print(get_lat_long(place_name))
 
+    ###Nearest MBTA Station###
+    latitude = str(get_lat_long(place_name)[0])
+    longitude = str(get_lat_long(place_name)[1])
+    # print(latitude)
+    # print(longitude)
+
+    print(get_nearest_station(latitude, longitude))
+
+    print(find_stop_near('Prudential Center'))
 
 if __name__ == '__main__':
     main()
