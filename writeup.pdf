@@ -1,0 +1,28 @@
+Nathan Nakahara
+Professor Li
+MIS3640
+12 April, 2020
+
+Assignment 3 Writeup
+
+In this assignment we created a webapp that took user inputed location in the Boston metro area, and returned the nearest MTBA station to where that location
+was, and if it was wheelchair accessible. To do this, we utilized APIs such as MapQuest and the MBTA API to pull the information from online, and outputed
+the response on a webpage made with html and Python.
+
+I used the framework kindly provided to us by professor Li to build the python app we would need to complete our task. The first step was to retrive and 
+interpret a JSON object from the MapQuest API in order to find the latitude and longitude for any given point in the Boston Metro Area. We ran into our first
+problem here. The API would not accept an spaces or special characters for an input, which we fixed by removing spaces with: "place_name = place_name.replace(" ", "%20")"
+With that sorted we recived a tuple with the longitude and latitude of any place or address, completing our first step. Next we would need to find out whether or not the 
+station was wheelchair accessible. I did this by returning part of the tuple with that information similar to how we found the cordinates. We then took both these functions
+and combined them to return the information in a complete sentence. "The nearest station to {place_name} is {response_data[0]}, and is {accessible_info}". 
+With the functionaly part sorted out, we then moved onto the webpage part of the assignment. Using Flask, I built several webpages such as an index, results page, and error page. 
+I decided to use the POST meathod to allow the user to input a place, and then we took them to the results page with the output we created in Python.
+
+I enjoyed this project a lot, to be able to connect the things we learned in class and actually see them online was very cool. I now have a greater understanding of how webapps work
+and would like to continue building them. When trying out the functionaly of the project I often ran into errors in which I was not sure the reason for why I recived an error. Before
+staring this project, I was completley new to FLASK, and it showed during the development stage. I constantly had stackoverflow and offical documentation pages open in order
+to figure out how to do even simple things such as refer to other pages. On the other hand I was not as new to HTML as I was to FLASK. Building a webpage using basic HTML is something
+I've done before. A strech goal for this assignemnt was to add some Java or CSS to the webpage to make it look nice. But unfortunatley due to time constrains I was not able to reach this
+goal to a level I was happy with turning in. I learned that Java and designing webpages is a lot harder that I imagined. Overall I greatley enjoyed this project and am hungry to learn more
+about webapps and the functionaly side of Python.
+
