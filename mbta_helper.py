@@ -3,11 +3,11 @@ MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
 MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 
 # Your API KEYS (you need to use your own keys - very long random characters)
-MAPQUEST_API_KEY = ""
-MBTA_API_KEY = ""
-
+MAPQUEST_API_KEY = "TBDo2JHjPzxATo89WX0IaKybW0VRYtvf"
+MBTA_API_KEY = "62eb3f8d91fe4bf3bc54d56c4d194cd8"
 
 # A little bit of scaffolding if you want to use it
+
 
 def get_json(url):
     """
@@ -51,5 +51,5 @@ def main():
     pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
