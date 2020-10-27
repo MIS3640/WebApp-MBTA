@@ -89,8 +89,6 @@ def find_stop_near(place_name):
     return get_nearest_station(latitude, longitude)
 
 
-
-
 def main():
     """
     You can test all the functions here

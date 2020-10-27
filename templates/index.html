@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazing app that will help you find the nearest MBTA station </title>
     <style>
+        a {color:rgb(161, 92, 118)}
+        h1 {color:palevioletred;}
         /* add background color to the navigation */
         .topnav {
             overflow: hidden;
@@ -28,11 +30,12 @@
 </head>
 <body>
     <div class="topnav">
-        <a href="index.html">Home</a>
-        <a href="mbta_html.html">Application</a>
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="{{url_for('nearest')}}">Application</a>
     </div>
-    <h1>Welcome to the MBTA Application</h1>
+    <h1>Hello! Welcome to the MBTA Application</h1>
     <p>This application  will help you find the nearest MBTA station based on your location or address</p>
+    <a href = "{{url_for('nearest')}}">Click here to begin!</a>
 </body>
 
 </html>

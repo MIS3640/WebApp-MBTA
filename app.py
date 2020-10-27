@@ -1,19 +1,32 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
+from mbta_helper import find_stop_near
+
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return render_template('index.html')
 
-@app.route('/nearest', methods=['GET', 'POST'])
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+
+@app.route('/nearest/', methods=['GET', 'POST'])
 def nearest():
-    if request.method == 'POST':
-        location = request.form
-        return redirect(url_for("nearest_mbta", location = location))
-    else:
-        return render_template('mbta_html.html')
+    if request.method == "POST":
+        place_name = str(request.form['location name'])
+        mbta_station = find_stop_near(place_name)
+        station = mbta_station[0]
+        wheelchair = mbta_station[1]
 
-@app.route('/nearest_mbta', methods=['POST'])
-def nearest_mbta(location):
-    return location
+        if mbta_station:
+            return render_template(
+                "result.html", 
+                place_name = place_name, 
+                station = station,
+                wheelchair = wheelchair
+            )
+        else: 
+            return render_template("mbta_form.html", error = True)
+    
+    return render_template("mbta_form.html", error = None)
+

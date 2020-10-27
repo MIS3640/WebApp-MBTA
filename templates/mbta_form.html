@@ -25,26 +25,30 @@
             background-color: #ddd;
             color: black;
         }
-        h1 {color:palevioletred;}
         h2 {color:rgb(50, 155, 182);}
     </style>
 </head>
 
 <body>
     <div class="topnav">
-        <a href="index.html">Home</a>
-        <a href="mbta_html.html">Application</a>
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="{{url_for('nearest')}}">Application</a>
     </div>
-    <h1>Hello!</h1>
-    <h2>Find the Nearest MBTA station to your location:</h2>
-    <form action="http://127.0.0.1:5000/" method="POST">
-        <p>Please enter your location below:</p>
+    <h2>Find the Nearest MBTA station to your location</h2>
+    <form method = "POST" name= "nearest">
+        {% if error %}
+        <p style = "color: red"> Sorry, this location does not have a nearby MBTA station. Please try again.</p>
+        {%endif%}
         <p>
-            Location: <input type="text" name="location" placeholder="Location here">
+            Please enter your location below:
         </p>
-        
-        <p><input type="submit" action="http://127.0.0.1:5000/"></p>
-    </form> 
+        <p>
+            <input type = "text" name = "location name" placeholder="Location here" />
+        </p>
+        <p>
+            <input type ="submit" value="Find a stop"/>
+        </p>
+    </form>
 </body>
 
 </html>
