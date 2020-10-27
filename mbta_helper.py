@@ -61,16 +61,14 @@ def get_nearest_station(latitude, longitude):
     return name, wheelchair
 
 
-def find_stop_near(place_name, show_wheelchair=False):
+def find_stop_near(place_name):
     """
     Given a place name or address, enter whether to display wheelchair accesibility, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
-    wheelchair_list = ["No Information", "Accesible", "Inaccessible"]
+    wheelchair_list = ["not clear if it is accessible", "accessible", "inaccessible"]
     latitude, longitude = get_lat_long(place_name)
     name, n = get_nearest_station(latitude, longitude)
-    if show_wheelchair:
-        return name, wheelchair_list[n]
-    return name
+    return name, wheelchair_list[n]
 
 
 def main():
@@ -80,7 +78,7 @@ def main():
     # latitude, longitude = get_lat_long("Boston Common")
     # print(latitude, longitude)
     # print(get_nearest_station(latitude, longitude))
-    print(find_stop_near("Chinatown"))
+    print(find_stop_near("Boston Common"))
 
 
 if __name__ == "__main__":
