@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MBTA Location Form</title>
+  </head>
+  <body>
+    <h1 style="font-size: 35px;">MBTA Location Form</h1>
+    <form method="POST" name="form">
+      {% if error %}
+      <p style="color:blue">Sorry, there is no station near you.</p>
+      {% endif %}
+      <p>
+        Please enter your current location:
+      </p>
+      <p>
+        <input type="text" size="4" name="Location" />
+      </p>
+      <p>
+        <input type="submit" value="Magic Happens" />
+      </p>
+    </form>
+    <img src="https://cdn.mbta.com/images/stops/state_street.jpg" alt="train">
+  </body>
+</html>
