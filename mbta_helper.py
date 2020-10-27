@@ -15,12 +15,6 @@ import urllib.parse
 import json
 from pprint import pprint
 
-def get_formatted_url (place):
-    """Write a function that takes an address or place name as input and 
-    returns a properly encoded URL to make a MapQuest geocode request."""
-    pass
-    #USE ENCODE FUNCTION
-
 def get_json(url):
     """
     Given a properly formatted URL for a JSON web API request, return

@@ -13,7 +13,7 @@ def index():
 @app.route('/nearest/', methods=['GET', 'POST'])
 def nearest():
     if request.method == "POST":
-        place_name = str(request.form['location name'])
+        place_name = str(request.form['location'])
         mbta_station = find_stop_near(place_name)
         station = mbta_station[0]
         wheelchair = mbta_station[1]
