@@ -54,11 +54,17 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-    url / data / {index} / attributes / latitude
-    f = urllib.request.urlopen(url)
-    response_text = f.read().decode("utf-8")
-    response_data = json.loads(response_text)
-    pass
+    f1 = urllib.request.urlopen(
+        MBTA_BASE_URL + f"/data/" + {index} + f"/attributes/{latitude}"
+    )
+    response_text1 = f.read().decode("utf-8")
+    latitude = json.loads(response_text)
+
+    f2 = urllib.request.urlopen(
+        MBTA_BASE_URL + f"/data/" + {index} + f"/attributes/{latitude}"
+    )
+    response_text2 = f.read().decode("utf-8")
+    longitude = json.loads(response_text) / data / {index} / attributes / longitude
 
 
 def find_stop_near(place_name):
