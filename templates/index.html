@@ -4,22 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Amazing app to help you find nearest MBTA station</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
-    <h1>Hello!</h1>
+    <h1><i class="fas fa-car"></i> <i>Hello!</i></h1>
     <form method="POST" name="mbta_station">
         <!-- {% if error %}
         <p style="color: red">There is no MBTA station nearby.</p>
         {% endif %} -->
-        <p>Please enter your location: <input type="text" id="place_name" name="place_name"></p>
+        <p><i class="fas fa-search-location"></i> Please enter your location: <input type="text" id="place_name" name="place_name"></p>
         <p>Route Type: <select name = "route_type" id = "route_type">
             <option value = "0">Tram, Streetcar, Light rail. Any light rail or street level system within a metropolitan area.</option>
             <option value = "1">Subway, Metro. Any underground rail system within a metropolitan area.</option>
             <option value = "2">Rail. Used for intercity or long-distance travel.</option>
-            <option value = "3">Bus. Used for short- and long-distance bus routes.</option>                <option value = "4">Ferry. Used for short- and long-distance boat service.</option>
+            <option value = "3">Bus. Used for short- and long-distance bus routes.</option>                
+            <option value = "4">Ferry. Used for short- and long-distance boat service.</option>
         </select></p>
-        <p><input type="submit" value="Submit"></p>
+        <p><input type="submit" id="submit" value="Submit"></p>
     </form>
 </body>
 
