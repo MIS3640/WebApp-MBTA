@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET', 'POST'])
+
 def hello():
     if request.method == 'POST':
         place_name = request.form['place_name']
