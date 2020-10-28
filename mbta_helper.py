@@ -50,7 +50,7 @@ def get_nearest_station(latitude, longitude, route_type):
     formatting requirements for the 'GET /stops' API.
     """
     params = urllib.parse.urlencode(
-        {'filter[latitude]': latitude, 'filter[longitude]': longitude, 'filter[route_type]': route_type})
+        {'api_key':MBTA_API_KEY,'filter[latitude]': latitude, 'filter[longitude]': longitude, 'filter[route_type]': route_type})
     url = MBTA_BASE_URL + "?" + params
     f = urllib.request.urlopen(url)
     response_text = f.read().decode('utf-8')
@@ -86,8 +86,8 @@ def main():
     """
     You can test all the functions here
     """
-    # print(find_stop_near('Jamaica Plain, MA, 02130', 1))
-    print(realtime_arrival(find_stop_near('Jamaica Plain, MA, 02130', 1)[0],1))
+    print(find_stop_near('Jamaica Plain, MA, 02130', 1))
+    # print(realtime_arrival(find_stop_near('Jamaica Plain, MA, 02130', 1)[0],1))
 
 
 if __name__ == '__main__':
