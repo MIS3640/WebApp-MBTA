@@ -72,15 +72,25 @@ def find_stop_near(place_name):
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
     f1=urllib.request.urlopen("https://api-v3.mbta.com/stops")
-    response_text1=f1.read().decode("utf-8")
-    return response_text1
+    text=f1.read().decode("utf-8")
+    stops=json.loads(text)
+    print(type(stops))
+    print(stops.keys())
+    for element in stops["data"]:
+        if element["attributes"]["municipality"]==place_name:
+            name=element["attributes"]["name"]
+            wheelchair_access=element['attributes']['wheelchair_boarding']
+    
+    return name, wheelchair_access
+
 
 
 def main():
     """
     You can test all the functions here
     """
-   text= find_stop_near("Wellesley")
+    name, access=find_stop_near("Wellesley")
+    print(name, access)
 
 
 if __name__ == "__main__":
