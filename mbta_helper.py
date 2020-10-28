@@ -56,9 +56,14 @@ def get_nearest_station(latitude, longitude):
     url = f"https://api-v3.mbta.com/stops?sort=distance&api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&filter[radius]=2"
     response_data = get_json(url)
     # print(response_data)
-    name = response_data["data"][0]["attributes"]["name"]
-    wheelchair = response_data["data"][0]["attributes"]["wheelchair_boarding"]
-    return name, wheelchair
+    try:
+        name = response_data["data"][0]["attributes"]["name"]
+        wheelchair = response_data["data"][0]["attributes"]["wheelchair_boarding"]
+        return name, wheelchair
+    except IndexError as e:
+        name = "No location found"
+        wheelchair = 0
+        return name, wheelchair
 
 
 def find_stop_near(place_name):

@@ -14,5 +14,9 @@ def index():
     if request.method == "POST":
         location = request.form["location"]
         mbta, wheelchair = find_stop_near(location)
-        return render_template("mbta_station.html", mbta=mbta, wheelchair=wheelchair)
+        if mbta != "No location found": 
+            return render_template("mbta_station.html", mbta=mbta, wheelchair=wheelchair)
+        else:
+            return render_template('error_page.html')
     return render_template("index.html")
+
