@@ -72,4 +72,6 @@ def latlng(location):
     print(response_data)
 
 
-print(latlng("Babson College"))
+print(latlng("Babson Colle")
+
+#want to find a location,it has to have a station within a half mile
