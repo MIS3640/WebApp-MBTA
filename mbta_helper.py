@@ -12,11 +12,11 @@ import urllib.request
 import json
 from pprint import pprint
 
-API_KEY = ""
+API_KEY = ""  # TODO: QUESTION, why do we have it as "" and not the key in here
 Location = ""
 
 
-def get_json(url):
+def get_json(url):  # TODO: I think this function is done done, right?
     """
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
@@ -34,7 +34,13 @@ def get_lat_long(place_name):
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
-    address = place_name.strip()
+    address = place_name.replace(
+        " ", "%20"
+    )  # TODO: Suggestion in order to replace any spaces with
+    # for " " in place_name:
+    #     place_name.replace(" ", "%20") #TODO: not sure if this will work so created this alternate.
+
+    # address = place_name.strip() #TODO: ORIGINAL.
     response_data = get_json(
         f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={address}"
     )
@@ -64,32 +70,33 @@ def get_nearest_station(latitude, longitude):
         MBTA_BASE_URL + f"/data/" + {index} + f"/attributes/{latitude}"
     )
     response_text2 = f.read().decode("utf-8")
-    longitude = json.loads(response_text) / data / {index} / attributes / longitude
+    longitude = (
+        json.loads(response_text) / data / {index} / attributes / longitude
+    )  # TODO: Could we do what was done in line 86 and onwards?
 
 
 def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
-    f1=urllib.request.urlopen("https://api-v3.mbta.com/stops")
-    text=f1.read().decode("utf-8")
-    stops=json.loads(text)
+    f1 = urllib.request.urlopen("https://api-v3.mbta.com/stops")
+    text = f1.read().decode("utf-8")
+    stops = json.loads(text)
     print(type(stops))
     print(stops.keys())
     for element in stops["data"]:
-        if element["attributes"]["municipality"]==place_name:
-            name=element["attributes"]["name"]
-            wheelchair_access=element['attributes']['wheelchair_boarding']
-    
-    return name, wheelchair_access
+        if element["attributes"]["municipality"] == place_name:
+            name = element["attributes"]["name"]
+            wheelchair_access = element["attributes"]["wheelchair_boarding"]
 
+    return name, wheelchair_access
 
 
 def main():
     """
     You can test all the functions here
     """
-    name, access=find_stop_near("Wellesley")
+    name, access = find_stop_near("Wellesley")
     print(name, access)
 
 
