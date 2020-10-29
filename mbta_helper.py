@@ -45,7 +45,7 @@ def get_lat_long(place_name):
 
     # address = place_name.strip() #TODO: ORIGINAL.
     response_data = get_json(
-        f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={address}"
+        f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={address},Boston,MA"
     )
     coordinates = response_data["results"][0]["locations"][0]["displayLatLng"]
     print(coordinates)
@@ -62,12 +62,13 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-    f1 = urllib.request.urlopen(
-        f"{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance"
-    )
+    mbta = f"{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance"
+    # mbta1 = f"{MBTA_BASE_URL}https://api-v3.mbta.com/stops?page%5Blimit%5D=2&sort=distance&filter%5Blatitude%5D=40.44878&filter%5Blongitude%5D=-74.52929&filter%5Bradius%5D=0.1"
+    f1 = urllib.request.urlopen(mbta)
     response_text1 = f1.read().decode("utf-8")
     locale = json.loads(response_text1)
-    print(locale)
+    pprint(locale)
+
     # lat_station = []
     # long_station = []
     # for element in locale["data"]:
@@ -87,7 +88,7 @@ def get_nearest_station(latitude, longitude):
     # longitude = (json.loads(response_text)[data][{index}][attributes][longitude]  # TODO: Could we do what was done in line 86 and onwards?
 
 
-get_nearest_station(40.4, -74.5)
+# get_nearest_station(42.3496, -71.0764)
 
 
 def find_stop_near(place_name):
