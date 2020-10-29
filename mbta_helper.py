@@ -27,6 +27,9 @@ def get_json(url):  # TODO: I think this function is done done, right?
     return response_data
 
 
+# print(get_json(f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=Copley%20Square"))
+
+
 def get_lat_long(place_name):
     """
     Given a place name or address, return a (latitude, longitude) tuple
@@ -45,12 +48,11 @@ def get_lat_long(place_name):
         f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={address}"
     )
     coordinates = response_data["results"][0]["locations"][0]["displayLatLng"]
-    tup1 = coordinates.items()
-    print(tup1)
+    print(coordinates)
 
 
 # lat': 42.296927,'lng': -71.291858
-get_lat_long("Wellesley")
+get_lat_long("Copley Square")
 
 
 def get_nearest_station(latitude, longitude):
@@ -61,18 +63,31 @@ def get_nearest_station(latitude, longitude):
     formatting requirements for the 'GET /stops' API.
     """
     f1 = urllib.request.urlopen(
-        MBTA_BASE_URL + f"/data/" + {index} + f"/attributes/{latitude}"
+        f"{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance"
     )
-    response_text1 = f.read().decode("utf-8")
-    latitude = json.loads(response_text)
+    response_text1 = f1.read().decode("utf-8")
+    locale = json.loads(response_text1)
+    print(locale)
+    # lat_station = []
+    # long_station = []
+    # for element in locale["data"]:
+    #     if element["attributes"]["latitude"] == latitude:
+    #         lat_name = element["attributes"]["name"]
+    #         lat_station.append(lat_name)
+    # for element in locale["data"]:
+    #     if element["attributes"]["longitude"] == longitude:
+    #         long_name = element["attributes"]["name"]
+    #         long_station.append(long_name)
+    # print(lat_station)
+    # print(long_station)
+    # return station_name
 
-    f2 = urllib.request.urlopen(
-        MBTA_BASE_URL + f"/data/" + {index} + f"/attributes/{latitude}"
-    )
-    response_text2 = f.read().decode("utf-8")
-    longitude = (
-        json.loads(response_text) / data / {index} / attributes / longitude
-    )  # TODO: Could we do what was done in line 86 and onwards?
+    # f2 = urllib.request.urlopen(MBTA_BASE_URL + f"/data/{index}" + f"/attributes/{latitude}")
+    # response_text2 = f.read().decode("utf-8")
+    # longitude = (json.loads(response_text)[data][{index}][attributes][longitude]  # TODO: Could we do what was done in line 86 and onwards?
+
+
+get_nearest_station(40.4, -74.5)
 
 
 def find_stop_near(place_name):
@@ -96,8 +111,8 @@ def main():
     """
     You can test all the functions here
     """
-    name, access = find_stop_near("Wellesley")
-    print(name, access)
+    # name, access = find_stop_near("Wellesley")
+    # print(name, access)
 
 
 if __name__ == "__main__":
