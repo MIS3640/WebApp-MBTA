@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,20 +13,37 @@
     
     h1 {
         text-align: center;
-        font-size: 40pt;
+        font-size: 30pt;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         background-color: yellow;
     }
-    p{text-align: center;}
-    ul{display: block; margin-left: auto; margin-right: auto;}
+    
+    ul {
+        text-align: center;
+        list-style: inside;
+        font-size: 15pt;
+        color: red;
+    }
+    
+    p {
+        text-align: center;
+        font-weight: bolder;
+        font-size: 15pt;
+    }
+    
+    #Error {
+        width: 300px;
+    }
 </style>
+
 <body>
     <h1>
         Search was unable to process your request.
     </h1>
     <p>
-      Location is unrecognized potentially due to:  
+        Location is unrecognized potentially due to:
     </p>
+
     <ul>
         <li>
             Invalid location name
@@ -34,8 +52,13 @@
             MBTA does not serve that region.
         </li>
     </ul>
-    <a href="{{ url_for('index') }}">
+    <p><img id="Error" src="https://api.time.com/wp-content/uploads/2018/09/apology-sorry.jpg?quality=85&w=1200&h=628&crop=1" alt="Error" , title="Error"></p>
+
+    <p>
+        <a href ref="{{ url_for( 'index') }} ">
         Link back to Homepage
-    </a>
+        </a>
+    </p>
 </body>
+
 </html>
