@@ -17,25 +17,27 @@ from pprint import pprint
 
 def get_json(url):
     """
-    Given a properly formatted URL for a JSON web API request, return
+    This function takes a a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
-    """
 
+    url: properly formatted URL
+    """
+    
     f = urllib.request.urlopen(url)
     response_text = f.read().decode('utf-8')
     response_data = json.loads(response_text)
     # pprint(response_data)
+
 
     return response_data
 
 
 def get_lat_long(place_name):
     """
-    #TODO: change docstring
-    Given a place name or address, return a (latitude, longitude) tuple
+    This function takes a place name or address, return a (latitude, longitude) tuple
     with the coordinates of the given place.
-    See https://developer.mapquest.com/documentation/geocoding-api/address/get/
-    for Mapquest Geocoding  API URL formatting requirements.
+
+    place_name: the name of location or address
     """
 
     place_name = place_name.replace(" ", "%20")
@@ -53,10 +55,11 @@ def get_lat_long(place_name):
 
 def get_nearest_station(latitude, longitude):
     """
-    Given latitude and longitude strings, return a (station_name, wheelchair_accessible)
+    This function takes the latitude and longitude strings, return a (station_name, wheelchair_accessible)
     tuple for the nearest MBTA station to the given coordinates.
-    See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
-    formatting requirements for the 'GET /stops' API.
+    
+    latitude: latitude of the place
+    longtitude: longitude of the place
     """
     url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance' #sort by closest distance
     nearest_station_json = get_json(url) #calling get_json function
@@ -73,7 +76,9 @@ def get_nearest_station(latitude, longitude):
 
 def find_stop_near(place_name):
     """
-    Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
+    This function takes a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
+
+    place_name: the name of location or address
     """
     #calling previous functions
     latLng = get_lat_long(place_name)
@@ -87,7 +92,7 @@ def main():
     """
     You can test all the functions here
     """
-    place_name = "Newbury Street, Boston"
+    place_name = "Babson College"
     ###Latitude and Longtitude###
     print(get_lat_long(place_name))
 

@@ -36,9 +36,10 @@
     </div>
     <h2>Find the Nearest MBTA station to your location</h2>
     <form method = "POST" name= "nearest">
-        {% if error %}
+        {%if error%}
         <p style = "color: red"> Sorry, this location does not have a nearby MBTA station. Please try again.</p>
         {%endif%}
+
         <p>
             Please enter your location below:
         </p>
