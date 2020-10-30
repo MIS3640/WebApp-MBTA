@@ -13,7 +13,7 @@ app = Flask(__name__)
 def index():
     if request.method == "POST":
         location = request.form["location"]
-        mbta, wheelchair = find_stop_near(location)
+        mbta, wheelchair, distance = find_stop_near(location)
         if mbta != "No location found": 
             return render_template("mbta_station.html", mbta=mbta, wheelchair=wheelchair, distance=distance)
         else:
