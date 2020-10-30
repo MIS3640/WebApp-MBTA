@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The MBTA Result</title>
+    <style>
+        h1 {color:palevioletred;}
+        a {color:rgb(161, 92, 118)}
+    </style>
+</head>
+<body>
+    <h1>The Nearest MBTA Result</h1>
+    <p>Location = {{place_name}}.</p>
+    <p>Closest MBTA Station =  {{station}}</p>
+    <p>Wheelchair = {{wheelchair}}</p>
+    <p>Wheelchair key: <br>
+        If wheelchair = 0, there is no available information. <br>
+        If wheelchair = 1, the wheelelchair is accessible.  <br>
+        If wheelchair = 2, the wheelelchair is inaccessible.
+    </p>
+    <a href = "{{url_for('nearest')}}">Click here to return to the application</a>
+</body>
+</html>

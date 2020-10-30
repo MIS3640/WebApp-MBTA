@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazing app that will help you find the nearest MBTA station </title>
+    <title>MBTA Location Finder</title>
     <style>
-        a {color:rgb(161, 92, 118)}
-        h1 {color:palevioletred;}
         /* add background color to the navigation */
-        .topnav {
+         .topnav {
             overflow: hidden;
             background-color: rgb(161, 92, 118);
         }
@@ -26,18 +25,31 @@
             background-color: #ddd;
             color: black;
         }
+        h2 {color:rgb(50, 155, 182);}
     </style>
 </head>
+
 <body>
     <div class="topnav">
         <a href="{{url_for('index')}}">Home</a>
         <a href="{{url_for('nearest')}}">Application</a>
     </div>
-    <h1>Hello! Welcome to the MBTA Application</h1>
-    <p>The Massachusetts Bay Transportation Authority (MBTA) is the public agency responsible for operating most public transportation services in Greater Boston, Massachusetts.<br>
-        This application  will help you find the nearest MBTA station based on your location or address.
-    </p>
-    <a href = "{{url_for('nearest')}}">Click here to begin!</a>
+    <h2>Find the Nearest MBTA station to your location</h2>
+    <form method = "POST" name= "nearest">
+        {%if error%}
+        <p style = "color: red"> Sorry, this location does not have a nearby MBTA station. Please try again.</p>
+        {%endif%}
+
+        <p>
+            Please enter your location below:
+        </p>
+        <p>
+            <input type = "text" name = "location" placeholder="Location here" />
+        </p>
+        <p>
+            <input type ="submit" value="Find a stop"/>
+        </p>
+    </form>
 </body>
 
 </html>
