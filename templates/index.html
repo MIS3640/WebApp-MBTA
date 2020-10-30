@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Amazing app to help you find nearest MBTA station</title>
-</head>
-<body>
 
-</body>
+</head>
+
+<style>
+    body {
+        background-color: aquamarine;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 40pt;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: yellow;
+    }
+    
+    #form,
+    h3 {
+        text-align: center;
+    }
+    
+    h3 {
+        color: grey;
+        font-style: oblique;
+    }
+    
+    #loc {
+        font-weight: bold;
+        font-size: 20pt;
+    }
+    
+    #map {
+        width: 700px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<body>
+    <h1>Hello!</h1>
+
+    <h3>This application is created to find you the nearest MBTA station based on your location.</h3>
+    <form method="POST" id="form">
+        <p id="loc">Enter Your Location:</p>
+        <p> <input type="text" name="location" placeholder="Enter your location here"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p><img id="map" src="https://upload.wikimedia.org/wikipedia/commons/d/db/2013_unofficial_MBTA_subway_map_by_Michael_Kvrivishvili.png" alt="MBTA" , title="MBTA Stations "></p>
+
 </html>

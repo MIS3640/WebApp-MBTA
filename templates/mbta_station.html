@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearest Station</title>
+</head>
+
+<style>
+    body {
+        background-color: aquamarine;
+    }
+    
+    h1 {
+        background-color: yellow;
+        text-align: center;
+    }
+    
+    .info {
+        text-align: center;
+        font-weight: bolder;
+        font-size: 30pt;
+    }
+    
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    span {
+        text-decoration: underline;
+    }
+</style>
+
+
+<body>
+    <h1>Your Nearest Station:</h1>
+    <p class="info"> The station nearest to you is <span>{{mbta}}</span>. </p>
+    <h1>Wheelchair Accesssibility:</h1>
+    <p class="info"> It is <span>{{wheelchair}}</span>. </p>
+    <h1>Distance to Station (Miles):</h1>
+    <p class="info"> It is <span>{{distance}} miles away</span>. </p>
+
+
+    <img src="https://images.unsplash.com/photo-1495313196544-7d1adf4e628f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Train Station" title="Train Station">
+</body>
+
+</html>
