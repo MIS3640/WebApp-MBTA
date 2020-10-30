@@ -9,6 +9,7 @@ MBTA_API_KEY = "30140eb3ff944e4e80bdc9cb3aaf1e80"
 import pprint
 import urllib.request
 import json
+from math import sin, cos, sqrt, atan2, radians
 
 # A little bit of scaffolding if you want to use it
 
@@ -45,7 +46,6 @@ def get_lat_long(place_name):
     lng = response_data["results"][0]["locations"][0]["latLng"]["lng"]
     return (lat, lng)
 
-
 def get_nearest_station(latitude, longitude):
     """
     Given latitude and longitude strings, return a (station_name, wheelchair_accessible)
@@ -65,6 +65,24 @@ def get_nearest_station(latitude, longitude):
         wheelchair = 0
         return name, wheelchair
 
+def distancetostation(origin):
+    """
+    Given the origin name and station name, returns the distance between the two points in miles. 
+    """
+    originlat, originlong = get_lat_long(origin)
+    name, wheelchair = get_nearest_station(originlat, originlong)
+    stationlat, stationlong = get_lat_long(name)
+    originlat = radians(originlat)
+    originlong = radians(originlong)
+    stationlat = radians(stationlat)
+    stationlong = radians(stationlong)
+    d_lat = stationlat - originlat
+    d_long = stationlong - originlat
+    formula1 = sin(d_lat/2)**2 + cos(originlat) * cos(stationlat) * sin(d_long/2)**2
+    formula2 = 2 * atan2(sqrt(formula1), sqrt(1-formula1))
+    kmdistance = formula2
+    d = kmdistance / 1.60934
+    return d
 
 def find_stop_near(place_name):
     """
@@ -73,8 +91,8 @@ def find_stop_near(place_name):
     wheelchair_list = ["not clear if it is accessible", "accessible", "inaccessible"]
     latitude, longitude = get_lat_long(place_name)
     name, n = get_nearest_station(latitude, longitude)
-    return name, wheelchair_list[n]
-
+    distance = distancetostation(name)
+    return name, wheelchair_list[n], distance
 
 def main():
     """
@@ -83,6 +101,7 @@ def main():
     # latitude, longitude = get_lat_long("Boston Common")
     # print(latitude, longitude)
     # print(get_nearest_station(latitude, longitude))
+    #print(distancetostation("Chinatown"))
     print(find_stop_near("Boston Common"))
 
 
