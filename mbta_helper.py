@@ -101,7 +101,7 @@ def main():
     # latitude, longitude = get_lat_long("Boston Common")
     # print(latitude, longitude)
     # print(get_nearest_station(latitude, longitude))
-    #print(distancetostation("Chinatown"))
+    print(distancetostation("Chinatown"))
     print(find_stop_near("Boston Common"))
 
 
