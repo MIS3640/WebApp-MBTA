@@ -3,7 +3,7 @@ MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
 MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 
 # Your API KEYS (you need to use your own keys - very long random characters)
-MAPQUEST_API_KEY = ""
+MAPQUEST_API_KEY = "g0tGrEvT7Yr9QaysgxCNbJqMptavv8jf"
 MBTA_API_KEY = ""
 
 
@@ -14,8 +14,19 @@ def get_json(url):
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
     """
-    pass
+    import urllib.request
+    import json
+    from pprint import pprint
 
+    MAPQUEST_API_KEY = 'g0tGrEvT7Yr9QaysgxCNbJqMptavv8jf'
+
+    url = f'http://www.mapquestapi.com/geocoding/v1/address?key=g0tGrEvT7Yr9QaysgxCNbJqMptavv8jf&location=Babson%20College'
+    f = urllib.request.urlopen(url)
+    response_text = f.read().decode('utf-8')
+    response_data = json.loads(response_text)
+    pprint(response_data)
+
+get_json(url)
 
 def get_lat_long(place_name):
     """
@@ -24,6 +35,7 @@ def get_lat_long(place_name):
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
+
     pass
 
 
