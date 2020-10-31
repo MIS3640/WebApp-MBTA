@@ -66,6 +66,9 @@ def get_nearest_station(latitude, longitude, route_type):
     return station_name, wheelchair_accessible
     
 def realtime_arrival(station_name,route_type):
+    """
+    Not complete. Only can show the realtime of rail.
+    """
     params = urllib.parse.urlencode({'filter[stop]':station_name,'filter[route_type]':route_type})
     url = "https://api-v3.mbta.com/predictions?" + params
     f = urllib.request.urlopen(url)
