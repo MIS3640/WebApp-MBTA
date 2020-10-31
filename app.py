@@ -1,13 +1,30 @@
+""" 
+1. Upon visiting the index page at `http://127.0.0.1:5000/`, the user will be greeted by a page that says hello, and includes an input **form** that requests a place name.
+2. Upon clicking the 'Submit' button, the data from the form will be sent via a POST request to the Flask backend at the route `POST /nearest`
+3. (Optional) Perform some simple validation on the user input. See [wtforms](https://flask.palletsprojects.com/en/1.1.x/patterns/wtforms/).
+4. The Flask backend will handle the request to `POST /nearest_mbta`. Then your app will render a `mbta_station` page for the user - presenting nearest MBTA stop and whether it is wheelchair accessible. In this step, you need to use the code from Part 1.
+5. If something is wrong, the app will render a simple error page, which will include some indication that the search did not work, in addition to a button (or link) that will redirect the user back to the home page.
 """
-Simple "Hello, World" application using Flask
-"""
-
-from flask import Flask
-
+from flask import Flask, render_template, request, url_for
+from mbta_helper import userlocation, fetchmap, fetchlatlng, fetchmbta
 
 app = Flask(__name__)
 
-
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def index():
+    return render_template("index.html")
+
+@app.route('/nearest/', methods=["GET", "POST"])
+def search():
+    if request.method == "POST":
+        location = request.form["location"]
+        # rad = int(request.form["rad"])
+        map_url = userlocation(location)
+        response_data = fetchmap(map_url)
+        latlng = fetchlatlng(response_data) 
+        # fetchmbta(latlng,rad)
+        stop_name, stop_accessible = fetchmbta(latlng)
+    return render_template("mbta_station.html", stop_name = stop_name, stop_accessible = stop_accessible)
+
+    
+    

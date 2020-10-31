@@ -4,7 +4,7 @@ def latlng(location):
     import urllib.request
     import json
     from pprint import pprint
-    import urllib.parse
+    import urllib.parse 
 
     MAPQUEST_API_KEY = "GIvTSav4ifuQ6OSObTVe7XzVoW5jB9Zq"
     # 1. encoding the location name
@@ -38,6 +38,7 @@ def latlng(location):
 
     # 2a. access value for latitude in this sub-dict
     lat = step1.get("lat")
+    print(f"LAT {lat}")
 
     # 3a. adjust positive/negative signs to north / south
     if lat > 0:
@@ -46,8 +47,8 @@ def latlng(location):
         latitude = f"{abs(lat):.2f} south"
 
     # 2b.access value for longtitude in this sub-dict
-    lng = step1.get("lng")
-
+    lng = step1.get('lng')
+    print(f"LONG {lng}")
     # 3b.adjust positive/negative signs to east/west
     if lng > 0:
         longtitude = f"{lng:.2f} east"
