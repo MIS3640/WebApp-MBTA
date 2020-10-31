@@ -1,10 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Amazing app to help you find nearest MBTA station</title>
-</head>
-<body>
+    <title>MBTA Map</title>
 
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+    <link type="text/css" rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script type="text/javascript" src="{{ url_for('static', filename='mapping.js') }}"></script>
+</head>
+
+<body>
+    <div id="map_data" lat="{{ lat}}" lng="{{ lng }}" stop_name="{{ stop_name }}" wheelchair="{{ wheelchair }}"></div>
+    <div class="container">
+        <h3 class="mbta-helper">MBTA Helper</h3>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-container">
+                    <h5>Filters</h5>
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="place_name">Your location</label>
+                            <input class="form-control" type="text" name="place_name" placeholder="Boston commons..">
+                        </div>
+                        <div class="form-group">
+                            <div class="slidecontainer">
+                                <input type="range" min="1" name="distance" max="10" value="5" class="slider"
+                                    id="distance">
+                                <p>Mile radius: <span id="my-dist"></span></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="radios">Wheelchair accessible</label>
+                            <div name="radios">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="wheelchair" value="true">
+                                    <label class="form-check-label" for="inlineRadio1">Required</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="wheelchair" value="false">
+                                    <label class="form-check-label" for="inlineRadio2">Not required</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+                <div class="results">
+                    {% if place_name != False %}
+                    <div class="stop-result">
+                        <h5>The closest stop to {{ place_name }} is ..</h5>
+                        <h3>{{ stop_name }}</h3>
+                        <p>Wheelchair accessible: {{ wheelchair }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div id="map" style="width: 100%; height: 530px;"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var slider = document.getElementById("distance");
+        var output = document.getElementById("my-dist");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+        }
+    </script>
+    <!--<script type="text/javascript" src="{{ url_for('static', filename='mapping.js') }}"></script>-->
 </body>
+
 </html>

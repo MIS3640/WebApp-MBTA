@@ -1,0 +1,21 @@
+body {
+    padding: 20px;
+}
+
+.mbta-helper {
+    margin-bottom: 25px;
+}
+
+.form-container {
+    /* background-color: #efefef; */
+    padding: 20px;
+    border-radius: 3px;
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.1);
+}
+
+.stop-result {
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 3px;
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.1);
+}
