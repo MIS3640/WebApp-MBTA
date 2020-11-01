@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazing app to help you find nearest MBTA station</title>
+    <title>Nearest MBTA Station Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/stylesheet.css') }}" />
 </head>
+
 <body>
-    <p>{{location}}</p>
-    <p>Stop Name: {{stop_name}}</p>
-    <p>Wheelchair Accessible: {{stop_accessible}}</p>
+    <div class="headerContainer">
+        <div class="containerText">Nearest MTBA Station Results</div>
+    </div>
+    <div class="mainContainer">
+        <div class="formContainer">
+            <fieldset>
+                <legend style="font-size:25px; color:cornflowerblue;">Stops Near You</legend>
+                <table>
+                    <tr>
+                        <td>Stop Name:</td>
+                        <td>{{stop_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Wheelchair Accessible:</td>
+                        <td>{{stop_accessible}}</td>
+                    </tr>
+                </table>
+                <p>{{stop_name}}, {{stop_accessible}}</p>
+            </fieldset>
+        </div>
 </body>
+
 </html>
