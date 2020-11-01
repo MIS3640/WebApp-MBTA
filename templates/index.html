@@ -5,16 +5,29 @@
     <meta charset="UTF-8">
     <title>MBTA Map</title>
 
+
+    <!-- MAPQUEST -->
     <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
     <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+
+    <!-- BOOTSTRAP -->
     <link type="text/css" rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <!-- MY STYLESHEET -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
+    <!-- PLACE SEARCH CDNS -->
+    <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css" />
+
+    <!-- LOAD MAPPING.JS -->
     <script type="text/javascript" src="{{ url_for('static', filename='mapping.js') }}"></script>
+    <!-- LOAD SEARCH.JS -->
+    <!--<script type="text/javascript" src="{{ url_for('static', filename='search.js') }}"></script>-->
 </head>
 
 <body>
+    <div id="map-keys" mapquest_key="{{ map_key }}" search_key="{{ search_key }}"></div>
     <div id="map_data" lat="{{ lat}}" lng="{{ lng }}" stop_name="{{ stop_name }}" wheelchair="{{ wheelchair }}"></div>
     <div class="container">
         <h3 class="mbta-helper">MBTA Helper</h3>
@@ -25,7 +38,8 @@
                     <form method="POST">
                         <div class="form-group">
                             <label for="place_name">Your location</label>
-                            <input class="form-control" type="text" name="place_name" placeholder="Boston commons..">
+                            <!--<input class="form-control" type="text" name="place_name" placeholder="Boston commons..">-->
+                            <input type="search" id="search-input" name="place_name" placeholder="Start Searching..." />
                         </div>
                         <div class="form-group">
                             <div class="slidecontainer">

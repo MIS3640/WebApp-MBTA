@@ -1,13 +1,15 @@
-window.onload = function () {
-    // Load map data from map_data div on index.html
-    L.mapquest.key = 'mMcQPxMFW14DpNaZOkv18VNaRYk2zw4';
+var keys = document.getElementById('map-keys');
+var mapKey = keys.getAttribute('mapquest_key');
+var searchKey = keys.getAttribute('search_key');
+
+function createMap() {
+    L.mapquest.key = mapKey;
     var data = document.getElementById("map_data");
     var lat = data.getAttribute("lat");
     var lng = data.getAttribute("lng");
     var stopName = data.getAttribute("stop_name");
     var wheelchair = data.getAttribute("wheelchair");
 
-    // create map object
     if (stopName == "No stops nearby") {
         lat = 42.3601;
         lng = -71.0589;
@@ -36,4 +38,24 @@ window.onload = function () {
         }).addTo(map);
     }
 
+}
+
+function createSearch() {
+    placeSearch({
+        key: searchKey,
+        container: document.querySelector('#search-input'),
+        useDeviceLocation: true,
+        collection: [
+            'poi',
+            'airport',
+            'address',
+            'adminArea',
+        ]
+    });
+    console.log(document.querySelector('#search-input'));
+}
+
+window.onload = function () {
+    createMap();
+    createSearch();
 };

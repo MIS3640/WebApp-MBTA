@@ -18,6 +18,11 @@ with open("sensitive.txt", "r") as handle:
 config = json.loads(data)
 MAPQUEST_API_KEY = config["MAPQUEST_API_KEY"]
 MBTA_API_KEY = config["MBTA_API_KEY"]
+PLACE_SEARCH_KEY = config["PLACE_SEARCH_KEY"]
+
+
+def get_keys():
+    return (MAPQUEST_API_KEY, PLACE_SEARCH_KEY)
 
 
 def get_json(url):
@@ -44,6 +49,7 @@ def get_lat_long(place_name):
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
+    print(f"SEARCHING FOR: {place_name}")
     place_name = replace_spaces(place_name)
     url = f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={place_name}"
     r = get_json(url)
