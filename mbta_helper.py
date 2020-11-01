@@ -33,11 +33,15 @@ def get_lat_long(place_name, city):
     for Mapquest Geocoding  API URL formatting requirements.
     """
     address = place_name.replace(" ", "%20")
+    city = city.replace(" ", "%20")
     response_data = get_json(
         f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={address},{city},MA"
     )
     coordinates = response_data["results"][0]["locations"][0]["displayLatLng"]
     return coordinates
+
+
+print(get_lat_long("Copley Square", "Boston"))
 
 
 def get_nearest_station(latitude, longitude):
@@ -66,9 +70,39 @@ def get_nearest_station(latitude, longitude):
             wheel_chair[i] = "Wheelchair Accessible"
         else:
             wheel_chair[i] = "Not Wheelchair Accessible"
-    if stop_desc[0] == "None":
+    if len(stop_name) == 0:
         return "No Stops Nearby"
-    return stop_desc[0], wheel_chair[0]
+    elif stop_name[0] == "None":
+        return stop_desc[0], wheel_chair[0]
+    return stop_name[0], wheel_chair[0]
+
+
+def test(location, city):
+    lat_long = get_lat_long(location, city)
+    latitude = lat_long.get("lat")
+    longitude = lat_long.get("lng")
+    mbta = f"{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance"
+    f1 = urllib.request.urlopen(mbta)
+    response_text1 = f1.read().decode("utf-8")
+    locale = json.loads(response_text1)
+    stop_name = []
+    stop_desc = []
+    wheel_chair = []
+    for element in locale["data"]:
+        name = element["attributes"]["name"]
+        desc = element["attributes"]["description"]
+        wheelchair = element["attributes"]["wheelchair_boarding"]
+        stop_desc.append(desc)
+        stop_name.append(name)
+        wheel_chair.append(wheelchair)
+    for i in range(len(wheel_chair)):
+        if wheel_chair[i] == 1:
+            wheel_chair[i] = "Wheelchair Accessible"
+        else:
+            wheel_chair[i] = "Not Wheelchair Accessible"
+    if stop_name == "None":
+        return "No Stops Nearby"
+    return stop_name[0], wheel_chair[0]
 
 
 def find_stop_near(place_name, city):
@@ -78,20 +112,14 @@ def find_stop_near(place_name, city):
     lat_long = get_lat_long(place_name, city)
     latitude = lat_long.get("lat")
     longitude = lat_long.get("lng")
-    try:
-        get_nearest_station(latitude, longitude)
-    except IndexError:
-        return "No Nearby Stops"
-    else:
-        result = get_nearest_station(latitude, longitude)
-        return result
+    return get_nearest_station(latitude, longitude)
 
 
 def main():
     """
     You can test all the functions here
     """
-    name = find_stop_near("Wellesley Hills", "Wellesley")
+    name = find_stop_near("410 Massachusetts Ave", "Boston")
     print(name)
 
 

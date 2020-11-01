@@ -10,7 +10,7 @@ def response():
         place_name = request.form["Place Name"]
         city = request.form["City"]
         response = find_stop_near(place_name, city)
-        if response == "No Nearby Stops":
+        if response == "No Stops Nearby":
             return render_template("index.html", error=True)
         else:
             return render_template(
