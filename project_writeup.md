@@ -1,0 +1,10 @@
+# Project overview
+The MBTA helper web app used the MBTA and Mapquest API's to show users the MBTA stop closest to the location they input in a form. Users
+had the option to filter using a mile radius, and deciding whether or not the station needed to be wheelchair accessible. I integrated the Place Search
+library from Mapquest as well to provide location suggestions to the user as they typed, this was necessary because often the user input did not correspond correctly
+with a location registered by Mapquest. Once an MBTA station result is returned it is displayed on the map next to the input form, this was also done using a Mapquest library.
+
+# Project reflection
+In terms of process, I started simple and then slowly built the more advanced features. To start, I simply built all of the functions I needed in a python file and recorded their output in the terminal to make sure they were all working. After I built all of the functions to satisfy the project's basic requirements, I integrated the output into the Flask web app. After getting the web app working with all of the basic requirements I started slowly adding additional libaries like the Mapquest map, and the Place Search library one component at a time. By not trying to do everything at once, I never really felt overwhelmed by the project or the work I was doing. I definitely scoped the project adequately, as it took me about a week to complete all of the features I wanted and I never felt pressed for time. 
+
+In terms of self-study, I had to spend a lot of time reading the Mapquest documentation regarding their libraries and I had to brush up on my Javascript as I have not used it in a while. I also had to read fairly extensively about the most efficient way to interact with "flask variables" in an external Javascript file - initially my code was really screwed up because I was mixing the Jinja templating syntax with Javascript. I wish before I started I'd known the best practices for mixing Jinja with Javascript because this broke my code for a while, and it was not the easiest to fix. 
