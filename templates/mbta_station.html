@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazing app to help you find nearest MBTA station</title>
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">-->
+</head>
+<body>
+    <div>
+        <h1>MBTA Nearest Stop Result</h1>
+        {% if nearest_stop %}
+            <div>
+                <h3>Station Name: {{ nearest_stop[0] }}</h3>
+                <h3>Wheelchair accessibility: {{ nearest_stop[1] }}</h3>
+            </div>
+        {% else %}
+            <div></div>
+        {% endif %}
+        <form action="/backToHome" method="POST">
+            <button type="submit" value="Search stops">New Search</button>
+        </form>
+    </div>
+</body>
+</html>
