@@ -35,9 +35,6 @@ def get_lat_long(location):
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
-    location = {'location': location}
-    location = urllib.parse.urlencode(location)
-    
     url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={location}'
     f = urllib.request.urlopen(url)
     response_text = f.read().decode('utf-8')
@@ -46,9 +43,9 @@ def get_lat_long(location):
     results = response_data['results'][0]['locations'][0]['latLng']
     latitude = results.get('lat')
     longitude = results.get('lng')
-    return(f"lat {latitude}, lng {longitude}")
+    return(latitude, longitude)
 
-print(get_lat_long('Boston'))
+#print(get_lat_long('Boston,MA'))
 
 
 def get_nearest_station(latitude, longitude):
@@ -65,26 +62,31 @@ def get_nearest_station(latitude, longitude):
     pprint(response_data)
     results = response_data['data'][0]['attributes']
     whc = results.get('wheelchair_boarding')
+    if whc == 0:
+        whcr = "Wheelchair Access: No Information"
+    elif whc == 1:
+        whcr = "Wheelchair Accessible"
+    else:
+        whcr = "Wheelchair Inaccessible"      
     nme = results.get('name')
-    clstation = (nme, whc)
+    clstation = (nme, whcr)
     return clstation
 
-print(get_nearest_station("47.17505", "-88.51992"))
+#print(get_nearest_station("42.358894", "-71.056742"))
 
-# def find_stop_near(location):
-#     """
-#     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
-#     """
-#     #mapurl = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={place_name}'
-#     #mbtaurl = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter=longitude={longitude}&page[limit]=1&sort=wheelchair_boarding'
-#     lat_long = get_lat_long(location)
-#     keys, values = zip(*lat_long.items())
-#     coord = str(values)
-#     crd = coord.split()
-#     nrstation = get_nearest_station(crd[0], crd[1])
-#     return(nrstation)
+def find_stop_near(location):
+    """
+    Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
+    """
+    lat_long = get_lat_long(location)
+    latitude = lat_long[0]
+    print(latitude)
+    longitude = lat_long[1]
+    print(longitude)
+    return get_nearest_station(latitude, longitude)
+    
 
-# print(find_stop_near('Boston'))
+print(find_stop_near('Wellesley,MA'))
 
 # def main():
 #     """
