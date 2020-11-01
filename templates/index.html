@@ -5,21 +5,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBTA Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/stylesheet.css') }}" />
+    <link rel="airplane" href="{{ url_for('static', filename='/files/airplane.jpg') }}" />
+    <link rel="trashcan" href="{{ url_for('static', filename='/files/trashcan.png') }}" />
+    <style>
+        button {
+            background-color: white;
+            margin: 15px;
+            font-family: Spartan;
+            font-size: 10px;
+            border-width: 5px;
+            cursor: pointer;
+            border-style: solid;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#resetIcon").click(function () {
+                $("input[type='text']").css("background-color", "white");
+            });
+        });
+
+        function processForm() {
+            if (document.getElementById("lc").value == "") {
+                alert("Location is required");
+                document.getElementById("lc").focus();
+                document.getElementById("lc").style.backgroundColor = "#FFFF00";
+            }
+            else if (document.getElementById("rd").value == "") {
+                alert("Radius is required");
+                document.getElementById("rd").focus();
+                document.getElementById("rd").style.backgroundColor = "#FFFF00";
+            }
+            else if (isNaN(document.getElementById("rd").value)) {
+                alert("Please provide a number");
+                document.getElementById("rd").value = "";
+                document.getElementById("rd").focus();
+            }
+            else {
+                return true;
+            }
+            return false;
+        };
+    </script>
 </head>
 
 <body>
-    <h1>MBTA Web App</h1>
-    <p>Hello</p>
-    <form method = "POST" name="mbtaform" action="/nearest/">
-        <p>
-            Please enter where you would like to search:
-        </p>
-        <p>
-            <input type="text" size = "4" name="location"/>
-            <!-- <input type="int" size = "4" name="rad"/> -->
-            <input type="submit" value="tadaaaa" />
-        </p>
-    </form>
+    <div class="headerContainer">
+        <div class="containerText">MBTA Web App</div>
+    </div>
+    <div class="mainContainer">
+        <br>
+        <p>Hello visitor! Welcome to the (unofficial) MBTA Web App!</p>
+        <br>
+        <form method="POST" name="mbtaform" action="/nearest/" onsubmit="return processForm()">
+            <div class="formContainer">
+                <fieldset>
+                    <legend style="font-size:25px; color:cornflowerblue;">Information</legend>
+                    <table>
+                        <tr>
+                            <td>Location:</td>
+                            <td><input type="text" size="4" name="location" id="lc" /></td>
+                        </tr>
+                        <tr>
+                            <td>Search Radius:</td>
+                            <td><input type="int" size="4" name="rad" id="rd" /></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <p>
+                    <button type="submit" value="Submit" name="Submit" style="border-color:green;">Submit
+                        <img src="/static/files/airplane.jpg" height="40" alt="Submit Button" />
+                    </button>
+
+                    <button id="resetIcon" type="reset" name="reset" value="Reset" style="border-color:gray;">Reset
+                        <img src="/static/files/trashcan.png" height="40" alt="Reset Button" onclick="resetPage">
+                    </button>
+                </p>
+        </form>
+    </div>
 </body>
 
 </html>
