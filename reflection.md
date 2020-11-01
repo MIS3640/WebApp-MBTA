@@ -8,7 +8,7 @@
 
 *Write a short abstract describing your project. Include all the extensions to the basic requirements.*
 
-Our team worked on creating a program that would find the nearest mbta stop closest to the location the user would input. We launched this program, using flask, as a website. First, in order to create the program, we utilized the scaffolding functions Professor provided which took the mapquest url and current input location to give the coresponding longitude and latitude coordinates. Those longitude and latitude coordinates were then used by another function to find the nearest station and return the name as well as wheelchair accessibilities. Through a final function, we combined the functions to seamlessly flow. In order to create the website, our team utilized the html:5 templates to create 2 documents: one for the user to compute requirements and the other, for displaying results. 
+Our team worked on creating a program that would find the nearest mbta stop closest to the location the user would input. We launched this program, using flask, as a website. First, in order to create the program, we utilized the scaffolding functions Professor Li provided. The fuctions we build using that scaffolding call the corresponding longitude and latitude coordinates of the inputted location using the MapQuest API. These longitude and latitude coordinates were then used by another function to find the nearest station and return the name as well as wheelchair accessibilities, which were found through the MBTA API. In the final function, we layered the functions to seamlessly flow from a given location to the nearest MBTA stop. In order to create the website, our team utilized the html:5 templates to create 2 documents: one for the user to compute requirements and the other, for displaying results. 
 
 ## Project Reflection *(2 paragraphs )*
 
@@ -24,4 +24,4 @@ One thing our team did was underestimate the duration it would take us to build 
 
 For the reflection aspect of the project, we felt we could divide the work up by each working on the paragraphs separately. Because we worked on the code all together, we were all on the same page and had the ability to work separately to contribute to the reflection.
 
-From a process point of view, we tested out wellesley hills, wellesley as our test case to see if it would correctly give a "no nearby stations" response or not as well as copley square, boston to test if it would give the correct station information response. Having this idea helped frequently test our code to see if we were on the right path or not.
+From a process point of view, we tested out "Wellesley Hills, Wellesley" as our test case to see if it would correctly give a "No Nearby Stations" response as intended. As well as testing "Copley Square, Boston" to check for a correct station response. Having this idea helped frequently test our code to see if we were on the right path or not.
