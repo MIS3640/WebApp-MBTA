@@ -1,7 +1,3 @@
-"""
-Simple "Hello, World" application using Flask
-"""
-
 from flask import Flask, render_template, request
 from mbta_helper import find_stop_near
 
@@ -15,7 +11,7 @@ def hello_world():
 @app.route("/nearest_mbta/", methods=["GET", "POST"])
 def n_mbta():
     if request.method == "POST":
-        pn = request.form["place_name"]
-        return(find_stop_near(pn))
+        return(find_stop_near(request.form['place_name']))
     else:
-        return render_template("error.html")  
+        return render_template("error.html")   
+

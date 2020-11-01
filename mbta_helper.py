@@ -11,22 +11,6 @@ MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 MAPQUEST_API_KEY = "3ARDm5kXCkY7rY52SF9XIWduvdRGV2v9"
 MBTA_API_KEY = "6f281f79382041de9dcdf84dac7e73a3"
 
-# A little bit of scaffolding if you want to use it
-
-# def get_json(url):
-#     """
-#     Given a properly formatted URL for a JSON web API request, return
-#     a Python JSON object containing the response to that request.
-#     """
-#     url = f''http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={place_name}''
-#     f = urllib.request.urlopen(url)
-#     response_text = f.read().decode('utf-8')
-#     response_data = json.loads(response_text)
-#     pprint(response_data)
-#     return(response_data["results"][0]["locations"][0]['postalCode'])
-
-# print(get_json(url))
-
 
 def get_lat_long(location):
     """
@@ -45,7 +29,7 @@ def get_lat_long(location):
     longitude = results.get('lng')
     return(latitude, longitude)
 
-#print(get_lat_long('Boston,MA'))
+# print(get_lat_long('Boston,MA'))
 
 
 def get_nearest_station(latitude, longitude):
@@ -69,10 +53,10 @@ def get_nearest_station(latitude, longitude):
     else:
         whcr = "Wheelchair Inaccessible"      
     nme = results.get('name')
-    clstation = (nme, whcr)
-    return clstation
+    # clstation = ()
+    return (nme, whcr)
 
-#print(get_nearest_station("42.358894", "-71.056742"))
+# print(get_nearest_station("42.358894", "-71.056742"))
 
 def find_stop_near(location):
     """
@@ -82,15 +66,15 @@ def find_stop_near(location):
     latitude = lat_long[0]
     longitude = lat_long[1]
     return get_nearest_station(latitude, longitude)
-    
 
-print(find_stop_near('Wellesley,MA'))
+# print(find_stop_near("Wellesley,MA"))    
+
 
 # def main():
 #     """
 #     You can test all the functions here
 #     """
-#     pass
+#     find_stop_near('Wellesley,MA')
 
 
 # if __name__ == '__main__':
