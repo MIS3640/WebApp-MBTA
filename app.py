@@ -36,3 +36,8 @@ def index():
         )
     except:
         return render_template("error.html")
+
+
+@app.route("/error")
+def error():
+    return render_template("error.html")
