@@ -3,7 +3,7 @@
 
 #### Project Overview
 
-###### Our project is a tool that takes a place name and returns the closest MBTA stop, and whether or not the stop has wheelchair boarding. We have also built a simple website using HTML and Flask to showcase the tool. After being greeted, the user is prompted to enter a location. After submitting, the tool will run, and the user will be sent to a webpage with the results. If there is an error, the user will be prompted to return to the home page. We added CSS styling (internal and inline styles) to our webpage (colors, texts, buttons, emojis). We also used Javascript for the animation of the "<h1>" tag. 
+###### Our project is a tool that takes a place name and returns the closest MBTA stop, and whether or not the stop has wheelchair boarding. We have also built a simple website using HTML and Flask to showcase the tool. After being greeted, the user is prompted to enter a location. After submitting, the tool will run, and the user will be sent to a webpage with the results. If there is an error, the user will be prompted to return to the home page. We added CSS styling (internal and inline styles) to our webpage (colors, texts, buttons, emojis). We also used Javascript for the animation of the < h1 > tag. 
 
 #### Project Reflection
 
