@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Amazing app to help you find nearest MBTA station</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
-
+    <div class="container">
+        <div class="greeting">
+            <h1>Hello</h1>
+            <h1>Welcome to MBTA app</h1>
+        
+        </div>
+        <div>
+            <form class="" action="/nearest" method="POST">
+                <input type="text" name="placeName" placeholder="Enter Location" id="placeName">
+                <button type="submit" value="Search stops">Search</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
