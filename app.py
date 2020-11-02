@@ -14,20 +14,6 @@ def page_not_found(error):
     return render_template("page_not_found.html"), 404
 
 
-# @app.route("/nearest/", methods=["GET", "POST"])
-# def search():
-#     if request.method == "POST":
-#         location = request.form["location"]
-#         rad = request.form["rad"]
-#         map_url = userlocation(location)
-#         response_data = fetchmap(map_url)
-#         latlng = fetchlatlng(response_data)
-#         stop_name, stop_accessible = fetchmbta(latlng, rad)
-#     return render_template(
-#         "mbta_station.html", stop_name=stop_name, stop_accessible=stop_accessible
-#     )
-
-
 @app.route("/nearest/", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
