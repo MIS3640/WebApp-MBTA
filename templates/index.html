@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Amazing app to help you find nearest MBTA station</title>
 </head>
+
 <body>
+    <h1>MBTA Nearest Stop Finder</h1>
+    <h2>Amazing app to help you find nearest MBTA station</h2>
+    <form method="POST" , name="mtba_helper">
+        {% if error %}
+        <p style="color:red">There are no stops nearby.</p>
+        {% endif %}
+        <p>
+            Please enter the address or place name and the city you are in:
+        </p>
+        <p>
+            Place Name: <input type="text" size="4" name="Place Name" />
+
+            City: <input type="text" size="4" name="City" />
+        </p>
+        <p>
+            <input type="submit" value="Search" />
+        </p>
+    </form>
 
 </body>
+
 </html>
