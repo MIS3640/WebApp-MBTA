@@ -1,10 +1,5 @@
 # WebApp-MBTA
  This is the base repo for MBTA project. Please read [instructions](instructions.md). 
 
-<h1>Project Overview</h1>
-<p>In the MBTA App project, we created a simple app that will fetch the longitude and latitude of a location entered by the user, find out whether there is an MBTA station nearby, and whether it has wheelchair accessibility. In order for the code to run, the user must instal flask beforehand. When in app.py, in terminal type " $env:FLASK_APP = "app.py" " followed by "Flask run." Then, go to the webpage link. </p>
-
-<h1>Project Reflection</h1>
-<p>From a process point of view, we are glad that we started this project early because there are many self-studying to do. We agreed to learn and code together over the calls when we were both available, so we are able to discuss the questions we had for flask and CSS when we weren't sure about the instructions. As we both learned from the previous assignment that communication is important, we maintained transparent communication and this really helped us when we were pair-coding remotely. The difference in time zone was an issue for us because one of us had to stay up, but we overcame it because we did most of the work on weekends. For the final project, we would set the meeting at a medium time so none of the teammates have to sacrifice sleep and so that there are balance between commitments. Lastly, the team will come to each meeting with prewritten or tested code beforehand to save time for each meeting.</p>
-
-<p>Before we started the project, we wished we saved enough time to try the optional parts of the assignement to further enhance our experience and knowledge in coding with Python. For self-studying, we learned and understood how to load static files, redirect urls and handle post requests in flask. Since we both learned CSS and HTML from WebTech, we also did a quick review on how to style the web page. We also learned how to read api's format so that we could use it to fetch the right data. Going forward, we believe understanding how flask works is helpful when we need to build an app for our final project or our future internships. It is also a very interesting experience as we get to create something that is actually helpful in real life. </p>
+# Reflection
+ Here is the link to the reflection [paragraphs](reflection.md). 
