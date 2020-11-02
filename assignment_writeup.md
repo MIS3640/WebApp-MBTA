@@ -1,0 +1,11 @@
+<h2>Project Overview</h2>
+
+Our project was designed to take a location from a user and then generate the closest MBTA stop to that location, along with whether or not that stop is wheelchair accessible. We were first required to create code that returns a JSON object (mbta_helper.py lines 18-27). We then modified this code so that it is able to accept a location from a user and still apply correctly to the URL. Then with this JSON object, we retrieved the latitude and longitude of the user's location (mbta_helper.py lines 30-49). We then used these coordinates to locate the nearest MBTA station using a similar JSON object that is created from accessing the MBTA API. This function returns the name of the MBTA station, as well as whether or not the station is wheelchair accessible (mbta_helper.py lines 52-76). The final functions puts all of the previous functions together and generates the desired output (mbta_helper.py lines 79-113).
+
+
+
+<h2>Project Reflection</h2>
+
+Our process was likely a bit different than many of the other groups that have also completed this assignment. Due to some last minute shuffling, we weren't really able to work together at any point throughout this assignment. Instead we worked individually and contributed that way. Ideally, we would have been able to collaborate more but the timing just didn't work for this particular assignment. For this reason, we weren't able to discover any issues caused by collaboration. However, working individually in a group assignment did prove to be quite difficult. Communication became a little challenging as it came down to crunch time. That mixed with some technical difficulties led to a frantic finish to the project. 
+
+Next time, we would like to be able to work together and collaborate more. This will allow us to sort out some of the communication problems, as well as iron out any technical difficulties more efficiently. Collaboration also would allow us to learn from eachother more effectively than learning purely from our own experience.
