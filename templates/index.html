@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Amazing app to help you find nearest MBTA station</title>
-</head>
-<body>
 
-</body>
+<html>
+  <head>
+    <title>Find Nearest MBTA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <h1>Hello and Welcome!</h1>
+    <div class="container">
+      <h1>Enter your city name and corresponding traveling distance (0.02 = 1 mile)</h1>
+      <br>
+      <form action="" method="post">
+        <input type="text" placeholder="City" name="city" value="{{
+          request.form.city }}">
+         <input type="text" placeholder="Maximum traveling distance" name="max" value="{{
+          request.form.max }}">
+        <input class="btn btn-default" type="submit" value="Login">
+      </form>
+      {% if location %}
+        <p class="error"><strong>Location:</strong> {{ location, wheelChairAcessibility }}</p>
+      {% endif %}
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}</p>
+      {% endif %}
+    </div>
+  </body>
 </html>
