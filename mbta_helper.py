@@ -14,8 +14,10 @@ def get_json(url):
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
     """
-    pass
-
+    url = ""
+    with urllib.request.urlopen(url) as f:
+        response_text = f.read().decode('utf-8')
+        j = json.loads(response_text)
 
 def get_lat_long(place_name):
     """
