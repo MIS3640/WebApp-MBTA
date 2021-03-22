@@ -3,12 +3,12 @@ import json
 from pprint import pprint
 
 # Useful URLs (you need to add the appropriate parameters for your requests)
-MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
-MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
+# MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
+# MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 
-# Your API KEYS (you need to use your own keys - very long random characters)
-MAPQUEST_API_KEY = "2bvJCZ8VpUKoqpSZXDD6NfXjsaKsLH1q"
-MBTA_API_KEY = "177043a1f6ac4a44ab3d765eff40d67a"
+# # Your API KEYS (you need to use your own keys - very long random characters)
+# MAPQUEST_API_KEY = "2bvJCZ8VpUKoqpSZXDD6NfXjsaKsLH1q"
+# MBTA_API_KEY = "177043a1f6ac4a44ab3d765eff40d67a"
 
 
 # A little bit of scaffolding if you want to use it
@@ -32,9 +32,10 @@ def get_lat_long(place_name):
     for Mapquest Geocoding  API URL formatting requirements.
     """
     MAPQUEST_API_KEY = "2bvJCZ8VpUKoqpSZXDD6NfXjsaKsLH1q"
-    d = {'place':place_name}
+    d = {'location':place_name}
     result = urllib.parse.urlencode(d)
-    url = f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={result}"
+    url = f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&{result}"
+    print(url)
     json = get_json(url)
     lat = json["results"][0]["locations"][0]["latLng"]["lat"]
     lng = json["results"][0]["locations"][0]["latLng"]["lng"]
@@ -48,6 +49,14 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
+    MBTA_API_KEY = "177043a1f6ac4a44ab3d765eff40d67a"
+    d = {'latitude': latitude, 'longitude':longitude}
+    result = urllib.parse.urlencode(d)
+    url = f"https://api-v3.mbta.com/stops?api_key={MBTA_API_KEY}&{result}"
+    json = get_json(url)
+    station_name = json['data'][0]['attributes']['name']
+    wheelchair_accessible  = json['data'][0]['attributes']['wheelchair_boarding']
+    return (station_name, wheelchair_accessible)
     
 
 
@@ -55,7 +64,9 @@ def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
-    pass
+    lat_long = get_lat_long(place_name)
+    station_wheelchair = get_nearest_station(*lat_long)
+    print(station_wheelchair)
 
 
 def main():
@@ -63,9 +74,12 @@ def main():
     You can test all the functions here
     """
     # MAPQUEST_API_KEY = "2bvJCZ8VpUKoqpSZXDD6NfXjsaKsLH1q"
-    # url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=Babson+College'
+    # url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=wellesley'
     # pprint(get_json(url))
-    print(get_lat_long('Babson College'))
+    # test = get_lat_long('wellesley')
+    # print(test)
+    # print(get_nearest_station(*test))
+    find_stop_near('wellesley')
 
 if __name__ == '__main__':
     main()
