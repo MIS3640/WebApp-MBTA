@@ -53,18 +53,14 @@ def get_nearest_station(latitude, longitude):
     """
     url = f'https://api-v3.mbta.com/stops?api_key=486c3e34aa424edbb1acefb343ae6cc6&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance'
     response_data = get_json(url)
-    #pprint.pprint(response_data) # ! THIS IS TO LIST OUT ALL OF THE LOCATIONS
+    #pprint.pprint(response_data)
     id = response_data['data'][0]['id']
     station_name = response_data['data'][0]['attributes']['name']
-    value = response_data['data'][0]['attributes']['wheelchair_boarding']
-    wheelchair_accessible = value
+    wheelchair_accessible = response_data['data'][0]['attributes']['wheelchair_boarding']
     return id, station_name, wheelchair_accessible
-    # if response_data["data"] == []:
-    #     print("No stops nearby")
-    #     exit()
-    # return response_data["data"][0]["attributes"]
 
 print(get_nearest_station(42.348457,-71.082622))
+print(get_nearest_station(42.3482677, -71.166336))
 
 
 
