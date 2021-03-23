@@ -35,7 +35,6 @@ def get_lat_long(place_name):
     d = {'location':place_name}
     result = urllib.parse.urlencode(d)
     url = f"http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&{result}"
-    print(url)
     json = get_json(url)
     lat = json["results"][0]["locations"][0]["latLng"]["lat"]
     lng = json["results"][0]["locations"][0]["latLng"]["lng"]
@@ -54,9 +53,12 @@ def get_nearest_station(latitude, longitude):
     result = urllib.parse.urlencode(d)
     url = f"https://api-v3.mbta.com/stops?api_key={MBTA_API_KEY}&{result}"
     json = get_json(url)
-    station_name = json['data'][0]['attributes']['name']
-    wheelchair_accessible  = json['data'][0]['attributes']['wheelchair_boarding']
-    return (station_name, wheelchair_accessible)
+    try:
+        station_name = json['data'][0]['attributes']['name']
+        wheelchair_accessible  = json['data'][0]['attributes']['wheelchair_boarding']
+        return (station_name, wheelchair_accessible)
+    except IndexError:
+        return 1
     
 
 
@@ -66,8 +68,14 @@ def find_stop_near(place_name):
     """
     lat_long = get_lat_long(place_name)
     station_wheelchair = get_nearest_station(*lat_long)
-    print(station_wheelchair)
-
+    if station_wheelchair == 1: 
+        return "No stations nearby"
+    if station_wheelchair[1] == 0: 
+        return f'There nearest station is {station_wheelchair[0]} and there is no info on wheelchair accessibility'
+    elif station_wheelchair[1] == 1: 
+        return f'There nearest station is {station_wheelchair[0]} and there is wheelchair accessibility'
+    elif station_wheelchair[1] == 2: 
+        return f'There nearest station is {station_wheelchair[0]} and there is no wheelchair accessibility'
 
 def main():
     """
@@ -76,10 +84,10 @@ def main():
     # MAPQUEST_API_KEY = "2bvJCZ8VpUKoqpSZXDD6NfXjsaKsLH1q"
     # url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=wellesley'
     # pprint(get_json(url))
-    # test = get_lat_long('wellesley')
-    # print(test)
-    # print(get_nearest_station(*test))
-    find_stop_near('wellesley')
+    test = get_lat_long('Boston College')
+    print(test)
+    print(get_nearest_station(*test))
+    print(find_stop_near('Babson College'))
 
 if __name__ == '__main__':
     main()
