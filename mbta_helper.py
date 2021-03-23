@@ -84,10 +84,10 @@ def main():
     # MAPQUEST_API_KEY = "2bvJCZ8VpUKoqpSZXDD6NfXjsaKsLH1q"
     # url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=wellesley'
     # pprint(get_json(url))
-    test = get_lat_long('Boston College')
-    print(test)
-    print(get_nearest_station(*test))
-    print(find_stop_near('Babson College'))
+    # test = get_lat_long('Boston College')
+    # print(test)
+    # print(get_nearest_station(*test))
+    print(find_stop_near('Boston College'))
 
 if __name__ == '__main__':
     main()
