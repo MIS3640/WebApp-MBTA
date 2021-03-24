@@ -37,7 +37,7 @@ def get_lat_long(place):
     location = d['results'][0]['locations'][0]['latLng']
     latitude = location['lat']
     longitude = location['lng']
-    t = (latitude,longitude)
+    t = (latitude, longitude)
     return t
 
 # print(get_lat_long('63%20Whitehead%20Avenue,%20Hull,%20MA,%2002045'))
@@ -53,31 +53,38 @@ def get_nearest_station(latitude, longitude):
     """
     url = f'https://api-v3.mbta.com/stops?api_key=486c3e34aa424edbb1acefb343ae6cc6&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance'
     response_data = get_json(url)
-    #pprint.pprint(response_data)
-    id = response_data['data'][0]['id']
+    # pprint.pprint(response_data)
+    # id = response_data['data'][0]['id']
     station_name = response_data['data'][0]['attributes']['name']
     wheelchair_accessible = response_data['data'][0]['attributes']['wheelchair_boarding']
-    return id, station_name, wheelchair_accessible
+    if wheelchair_accessible == 0:
+        wheelchair_access = "Not wheelchair accessible"
+    else:
+        wheelchair_access = "Wheelchair accessible"
+    return station_name, wheelchair_access
 
-print(get_nearest_station(42.348457,-71.082622))
-print(get_nearest_station(42.3482677, -71.166336))
-
-
-
+# print(get_nearest_station(42.348457,-71.082622))
+# print(get_nearest_station(42.3482677, -71.166336))
 
 def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
-    pass
+    coordinates = get_lat_long(place_name)
+    return get_nearest_station(*coordinates)
+
+# print(find_stop_near('63%20Whitehead%20Avenue,%20Hull,%20MA,%2002045'))
 
 
 def main():
     """
     You can test all the functions here
     """
-    pass
-
+    address = '63%20Whitehead%20Avenue,%20Hull,%20MA,%2002045'
+    # location = get_lat_long(address)
+    # print(get_nearest_station(*location))
+    print(find_stop_near(address))
 
 if __name__ == '__main__':
     main()
+
