@@ -71,11 +71,11 @@ def find_stop_near(place_name):
     if station_wheelchair == 1: 
         return "No stations nearby"
     if station_wheelchair[1] == 0: 
-        return f'There nearest station is {station_wheelchair[0]} and there is no info on wheelchair accessibility'
+        return f'The nearest station is {station_wheelchair[0]} and there is no info on wheelchair accessibility'
     elif station_wheelchair[1] == 1: 
-        return f'There nearest station is {station_wheelchair[0]} and there is wheelchair accessibility'
+        return f'The nearest station is {station_wheelchair[0]} and there is wheelchair accessibility'
     elif station_wheelchair[1] == 2: 
-        return f'There nearest station is {station_wheelchair[0]} and there is no wheelchair accessibility'
+        return f'The nearest station is {station_wheelchair[0]} and there is no wheelchair accessibility'
 
 def main():
     """
@@ -87,7 +87,7 @@ def main():
     # test = get_lat_long('Boston College')
     # print(test)
     # print(get_nearest_station(*test))
-    print(find_stop_near('Boston College'))
+    print(find_stop_near('Wellesley'))
 
 if __name__ == '__main__':
     main()

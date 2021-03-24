@@ -6,9 +6,9 @@ app = Flask(__name__)
 def home():
     if request.method == "POST":
         user = request.form["location_name"]
-        return find_stop_near(user)
+        return render_template('data.html', value = user, nearest_stop = find_stop_near(user))
     else:
-        return render_template('index.html')
+        return render_template('website.html')
  
 # @app.route('/data')
 # def data():
