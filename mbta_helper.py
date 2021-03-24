@@ -14,7 +14,7 @@ def get_json(url):
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
     """
-    url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=Babson%20College'
+    url = f'http://www.mapquestapi.com/geocoding/v1/address?key=reB6lcbfcK79Ksc75exZpoJHKEjE8pfS&location=Babson%20College'
     with urllib.request.urlopen(url) as f:
         f = urllib.request.urlopen(url)
         response_text = f.read().decode('utf-8')
