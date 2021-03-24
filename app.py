@@ -10,8 +10,5 @@ def home():
     else:
         return render_template('website.html')
  
-# @app.route('/data')
-# def data():
-#     return render_template('data.html')
-
-
+if __name__ == '__main__':
+    app.run()
