@@ -8,27 +8,40 @@ MBTA_API_KEY = "486c3e34aa424edbb1acefb343ae6cc6"
 
 
 # A little bit of scaffolding if you want to use it
-
+import pprint
+import urllib.request
+import json
+url = f'http://www.mapquestapi.com/geocoding/v1/address?key=reB6lcbfcK79Ksc75exZpoJHKEjE8pfS&location=Babson%20College'
 def get_json(url):
     """
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
     """
-    url = f'http://www.mapquestapi.com/geocoding/v1/address?key=reB6lcbfcK79Ksc75exZpoJHKEjE8pfS&location=Babson%20College'
     with urllib.request.urlopen(url) as f:
         f = urllib.request.urlopen(url)
         response_text = f.read().decode('utf-8')
         response_data = json.loads(response_text)
-        pprint(response_data)
+        return response_data
 
-def get_lat_long(place_name):
+# get_json(url)
+
+def get_lat_long(place):
     """
     Given a place name or address, return a (latitude, longitude) tuple
     with the coordinates of the given place.
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
-    pass
+    url = f'http://www.mapquestapi.com/geocoding/v1/address?key=reB6lcbfcK79Ksc75exZpoJHKEjE8pfS&location={place}'
+    d = get_json(url)
+    location = d['results'][0]['locations'][0]['latLng']
+    latitude = location['lat']
+    longitude = location['lng']
+    t = (latitude,longitude)
+    return t
+
+# print(get_lat_long('63%20Whitehead%20Avenue,%20Hull,%20MA,%2002045'))
+# print(get_lat_long('Harvard%20University%20MA'))
 
 
 def get_nearest_station(latitude, longitude):
@@ -38,7 +51,18 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-    pass
+    url = f'https://api-v3.mbta.com/stops?api_key=486c3e34aa424edbb1acefb343ae6cc6&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance'
+    response_data = get_json(url)
+    #pprint.pprint(response_data)
+    id = response_data['data'][0]['id']
+    station_name = response_data['data'][0]['attributes']['name']
+    wheelchair_accessible = response_data['data'][0]['attributes']['wheelchair_boarding']
+    return id, station_name, wheelchair_accessible
+
+print(get_nearest_station(42.348457,-71.082622))
+print(get_nearest_station(42.3482677, -71.166336))
+
+
 
 
 def find_stop_near(place_name):
