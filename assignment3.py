@@ -43,7 +43,8 @@ def get_mbta_url():
     from config import MAPQUEST_API_KEY
     MAPQUEST_API_KEY = MAPQUEST_API_KEY
     params = urllib.parse.urlencode({'key': MAPQUEST_API_KEY, 'location': place_name})
-    url = f'https://api-v3.mbta.com/stops/data/{index}/attributes/latitude and /data/{index}/attributes/longitude' % params
+    # url = f'https://api-v3.mbta.com/stops/data/{index}/attributes/latitude and /data/{index}/attributes/longitude' % params
+    url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance'
     return url
     
 def get_nearest_station(latitude, longitude):
