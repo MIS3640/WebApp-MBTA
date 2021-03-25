@@ -1,20 +1,29 @@
+import urllib.request
+import json
+from pprint import pprint
+
 # Useful URLs (you need to add the appropriate parameters for your requests)
 MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
 MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
 
 # Your API KEYS (you need to use your own keys - very long random characters)
-MAPQUEST_API_KEY = ""
+MAPQUEST_API_KEY = "4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap"
 MBTA_API_KEY = ""
 
 
 # A little bit of scaffolding if you want to use it
+
 
 def get_json(url):
     """
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
     """
-    pass
+    f = urllib.request.urlopen(url)
+    response_text = f.read().decode('utf-8')
+    response_data = json.loads(response_text)
+    pprint(response_data)
+    return response_data
 
 
 def get_lat_long(place_name):
@@ -24,7 +33,13 @@ def get_lat_long(place_name):
     See https://developer.mapquest.com/documentation/geocoding-api/address/get/
     for Mapquest Geocoding  API URL formatting requirements.
     """
-    pass
+    place_name_valid = place_name.replace(" ", "%20")
+    url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={place_name_valid}'
+    response_data = get_json(url)
+    displayLatLng = response_data["results"][0]["locations"][0]['displayLatLng']
+    lat = displayLatLng["lat"]
+    ltt = displayLatLng["lng"]
+    return (lat, ltt)
 
 
 def get_nearest_station(latitude, longitude):
@@ -52,4 +67,5 @@ def main():
 
 
 if __name__ == '__main__':
+    print(get_lat_long("babson college"))
     main()
