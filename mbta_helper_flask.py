@@ -1,27 +1,28 @@
-# Useful URLs (you need to add the appropriate parameters for your requests)
-import json
-import sys
 import urllib.request
-from pprint import pprint
+import json
+from flask import Flask, render_template, request, redirect, url_for
 
-MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
-MBTA_BASE_URL = "https://api-v3.mbta.com/stops"
-
-# Your API KEYS (you need to use your own keys - very long random characters)
-MAPQUEST_API_KEY = "c6SEWZsdBV6fJeVO2lGbNKI1SOBgdOn3"
-MBTA_API_KEY = "da74e2e522c444b8b3aa624b39aa5a2a"
+app = Flask(__name__)
 
 
-def locate_address():
-    """This function takes the users current location and then formats it so that if there are any spaces, 
-    it changes it to %20. This makes it so that it can be used with a URL"""
-    location = str(input("What is your current location? "))
-    location = location.replace(' ', '%20')
-    return location
+@app.route('/', methods=['POST', 'GET'])
+def home():
+
+    if request.method == 'POST':
+        return render_template('index.html')
+    else:
+        return render_template('index.html')
 
 
-def get_geographical_data():
-    address = locate_address()
+@app.route('/stops', methods=['POST', 'GET'])
+def stops():
+    location = request.args.get('location')
+    stops = parse_json_station(location)
+    return render_template('stops.html', stops=stops)
+
+
+def get_geographical_data(location):
+    address = location.replace(" ", "%20")
     MAPQUEST_API_KEY = "c6SEWZsdBV6fJeVO2lGbNKI1SOBgdOn3"
     url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={address}'
     f = urllib.request.urlopen(url)
@@ -30,8 +31,8 @@ def get_geographical_data():
     return response_data
 
 
-def coordinates():
-    geographical_data = get_geographical_data()
+def coordinates(location):
+    geographical_data = get_geographical_data(location)
     total_locations = len(geographical_data['results'][0]['locations'])
     coordinate_list = []
     state = 'MA'
@@ -45,8 +46,8 @@ def coordinates():
     sys.exit('Location was invalid, try with different location.')
 
 
-def get_nearest_station():
-    coordinate_list = coordinates()
+def get_nearest_station(location):
+    coordinate_list = coordinates(location)
     latitude = coordinate_list[0]
     longitude = coordinate_list[1]
     url = f'https://api-v3.mbta.com/stops?filter[latitude]={latitude}&filter[longitude]={longitude}'
@@ -56,8 +57,8 @@ def get_nearest_station():
     return response_data
 
 
-def parse_json_station():
-    station_data = get_nearest_station()
+def parse_json_station(location):
+    station_data = get_nearest_station(location)
     if station_data['data'] == []:
         return "No Close Stations"
     else:
@@ -71,8 +72,7 @@ def parse_json_station():
         station_name = str(station_data['data'][0]['attributes']['name'])
         final_str = station_name + ': ' + handicap_str
         return final_str
-        
 
 
 if __name__ == '__main__':
-    parse_json_station()
+    app.run(debug=True)

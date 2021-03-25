@@ -17,7 +17,7 @@ You may have used multiple Python packages to access information on the Internet
 - Only one of you should fork the base repository for this project. The one that forks the repository should then add the other team members as collaborators on Github for that repo.
 
 ---
-## Part 1: Geocoding and Web APIs
+## Part 1: Geocoding and Web API
 
 The goal for Part 1 to deal with geographical data. You will write a tool that takes an address or place name and returns the closest MBTA stop and the distance from the given place to that stop. For example: 
 ```    
