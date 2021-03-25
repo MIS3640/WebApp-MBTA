@@ -6,8 +6,8 @@ def get_mapquest_url(place_name):
     import urllib.request
     import urllib.parse
     from config import MAPQUEST_API_KEY
-    MAPQUEST_API_KEY = MAPQUEST_API_KEY
-    params = urllib.parse.urlencode({'key': MAPQUEST_API_KEY, 'location': place_name})
+    MAPQUEST_API_K = MAPQUEST_API_KEY
+    params = urllib.parse.urlencode({'key': MAPQUEST_API_K, 'location': place_name})
     url = f'http://www.mapquestapi.com/geocoding/v1/address?%s' % params
     return url
 
@@ -40,9 +40,10 @@ def get_lat_long(place_name):
 def get_mbta_url():
     import urllib.request
     import urllib.parse
-    from config import MAPQUEST_API_KEY
-    MAPQUEST_API_KEY = MAPQUEST_API_KEY
-    params = urllib.parse.urlencode({'key': MAPQUEST_API_KEY, 'location': place_name})
+    from config import MBTA_API_KEY
+    MBTA_API_K = MBTA_API_KEY
+    get_lat_long("place_name")
+    params = urllib.parse.urlencode({'key': MBTA_API_KEY, 'location': place_name})
     # url = f'https://api-v3.mbta.com/stops/data/{index}/attributes/latitude and /data/{index}/attributes/longitude' % params
     url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance'
     return url
@@ -54,24 +55,43 @@ def get_nearest_station(latitude, longitude):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-    pass
+    import pprint
+
+    from config import MBTA_API_KEY
+    # MBTA_API_K = MBTA_API_KEY
+    # MBTA_BASE_URL = "https://api-v3.mbta.com/stops/"
+    # # url = f'https://api-v3.mbta.com/stops/data/{index}/attributes/latitude and /data/{index}/attributes/longitude' % params
+    # url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance'
+    # data = get_json(url)
+    data = get_json(f"https://api-v3.mbta.com/stops?page%5Blimit%5D=5&sort=-distance&filter%5Blatitude%5D={latitude}&filter%5Blongitude%5D={longitude}&filter%5Blocation_type%5D=1")
+    pprint.pprint(data)
+
+
+
+    
 
 
 def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
-    pass
+    lat_long = get_lat_long(place_name)
+    latitude = lat_long[0]
+    longitude = lat_long[1]
+    get
 
 def main():
     from pprint import pprint
     
-    MAPQUEST_URL = get_mapquest_url("Washington,DC")
-    pprint(get_json(MAPQUEST_URL))
-    print(get_lat_long('Washington,DC'))
+    # MAPQUEST_URL = get_mapquest_url("4 Jersey St, Boston, MA")
+    # pprint(get_json(MAPQUEST_URL))
+    # print(get_lat_long('4 Jersey St, Boston, MA'))
+
+    print(get_nearest_station(42.346786, -71.098649)) 
 
 
 if __name__ == '__main__':
     main()
+
 
 
