@@ -47,7 +47,7 @@
       "lat": 42.29822,
       "lng": -71.26543
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29822,-71.26543|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-1960436866"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29822,-71.26543|marker-sm-50318A-1&scalebar=true&zoom=15&rand=1239449087"
     },
     {
      "street": "College Drive",
@@ -77,7 +77,7 @@
       "lat": 27.84321,
       "lng": -81.53535
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=27.84321,-81.53535|marker-sm-50318A-2&scalebar=true&zoom=15&rand=2019507472"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=27.84321,-81.53535|marker-sm-50318A-2&scalebar=true&zoom=15&rand=-1004156062"
     },
     {
      "street": "Babson Court",
@@ -107,7 +107,7 @@
       "lat": 39.91978,
       "lng": -86.2158
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=39.91978,-86.2158|marker-sm-50318A-3&scalebar=true&zoom=15&rand=-1004400220"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=39.91978,-86.2158|marker-sm-50318A-3&scalebar=true&zoom=15&rand=-1406187832"
     },
     {
      "street": "Park Manor Way",
@@ -137,7 +137,7 @@
       "lat": 42.29767,
       "lng": -71.26461
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29767,-71.26461|marker-sm-50318A-4&scalebar=true&zoom=15&rand=-1459663150"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29767,-71.26461|marker-sm-50318A-4&scalebar=true&zoom=15&rand=-1926793689"
     }
    ]
   }
