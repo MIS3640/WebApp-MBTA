@@ -70,8 +70,11 @@ def find_stop_near(place_name):
     """
     Given a place name or address, return the nearest MBTA stop and whether it is wheelchair accessible.
     """
+    place_name = place_name.replace(" ", "%20")
     coordinates = get_lat_long(place_name)
     return get_nearest_station(*coordinates)
+
+# start error handling here, i.e. what happens when put in babson college, and there is no result returned
 
 # print(find_stop_near('63%20Whitehead%20Avenue,%20Hull,%20MA,%2002045'))
 
@@ -80,7 +83,7 @@ def main():
     """
     You can test all the functions here
     """
-    address = '63%20Whitehead%20Avenue,%20Hull,%20MA,%2002045'
+    address = '63 Whitehead Avenue, Hull, MA, 02045'
     # location = get_lat_long(address)
     # print(get_nearest_station(*location))
     print(find_stop_near(address))

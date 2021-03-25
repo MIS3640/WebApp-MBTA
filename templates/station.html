@@ -5,10 +5,11 @@
     <title>Amazing app to help you find nearest MBTA station</title>
 </head>
 <body>
-    {% if result%}
+    {% if result %}
     <h1>The nearest MBTA stop: </h1>
         <p>{{ result[0] }} </p>
     <h1>Wheelchair access:</h1>
         <p>{{ result[1] }} </p>
+    {% endif %}
 </body>
 </html>

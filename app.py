@@ -9,11 +9,11 @@ from flask import render_template
 
 app = Flask(__name__)
 
-@app.route('/')
-def main_page():
-    return render_template('index.html')
+# @app.route('/')
+# def main_page():
+#     return render_template('index.html')
 
-@app.route('/nearest/', methods=["GET", "POST"])
+@app.route('/', methods=["GET", "POST"])
 def get_nearest_stop():
     if request.method == "POST":
         place_name = request.form['address']
@@ -21,5 +21,8 @@ def get_nearest_stop():
         if result:
             return render_template('station.html', result=result)
         else:
-            return render_template("form.html", error = True)
-    return render_template("error.html", error = None)
+            return render_template("error.html")
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
