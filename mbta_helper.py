@@ -39,6 +39,8 @@ def get_lat_long(place_name):
     displayLatLng = response_data["results"][0]["locations"][0]['displayLatLng']
     lat = displayLatLng["lat"]
     ltt = displayLatLng["lng"]
+    with open(f'mppp.json', 'w') as file:
+        file.write(json.dumps(response_data, indent=1))
     return (lat, ltt)
 
 
