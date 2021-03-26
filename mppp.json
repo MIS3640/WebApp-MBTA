@@ -47,7 +47,7 @@
       "lat": 42.29621,
       "lng": -71.32219
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29621,-71.32219|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-85501398"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29621,-71.32219|marker-sm-50318A-1&scalebar=true&zoom=15&rand=1663987810"
     },
     {
      "street": "Wellesley Drive",
@@ -77,7 +77,7 @@
       "lat": 38.98311,
       "lng": -76.9138
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=38.98311,-76.9138|marker-sm-50318A-2&scalebar=true&zoom=15&rand=-795630842"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=38.98311,-76.9138|marker-sm-50318A-2&scalebar=true&zoom=15&rand=-394695922"
     },
     {
      "street": "Wellesley Court",
@@ -107,7 +107,7 @@
       "lat": 30.63186,
       "lng": -96.32556
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=30.63186,-96.32556|marker-sm-50318A-3&scalebar=true&zoom=15&rand=438841022"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=30.63186,-96.32556|marker-sm-50318A-3&scalebar=true&zoom=15&rand=-1768906695"
     },
     {
      "street": "Babson College Drive",
@@ -137,7 +137,7 @@
       "lat": 42.29822,
       "lng": -71.26543
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29822,-71.26543|marker-sm-50318A-4&scalebar=true&zoom=15&rand=1357317348"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29822,-71.26543|marker-sm-50318A-4&scalebar=true&zoom=15&rand=-1093791639"
     },
     {
      "street": "Wellesley Drive",
@@ -167,7 +167,7 @@
       "lat": 26.63855,
       "lng": -80.05224
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=26.63855,-80.05224|marker-sm-50318A-5&scalebar=true&zoom=15&rand=2140025484"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=26.63855,-80.05224|marker-sm-50318A-5&scalebar=true&zoom=15&rand=-1267519185"
     },
     {
      "street": "Wellesley Street",
@@ -197,7 +197,7 @@
       "lat": 37.42374,
       "lng": -122.14969
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=37.42374,-122.14969|marker-sm-50318A-6&scalebar=true&zoom=15&rand=1617778601"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=37.42374,-122.14969|marker-sm-50318A-6&scalebar=true&zoom=15&rand=-1842637550"
     },
     {
      "street": "College Road & Wellesley Street",
@@ -227,7 +227,7 @@
       "lat": 53.01636,
       "lng": -2.17846
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=53.01636,-2.17846|marker-sm-50318A-7&scalebar=true&zoom=15&rand=1022303786"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=53.01636,-2.17846|marker-sm-50318A-7&scalebar=true&zoom=15&rand=735782249"
     },
     {
      "street": "Wellesley Road",
@@ -257,7 +257,7 @@
       "lat": 56.17444,
       "lng": -3.03062
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=56.17444,-3.03062|marker-sm-50318A-8&scalebar=true&zoom=15&rand=578634922"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=56.17444,-3.03062|marker-sm-50318A-8&scalebar=true&zoom=15&rand=-2084245196"
     },
     {
      "street": "Wellesley Street & Regis College",
@@ -287,7 +287,7 @@
       "lat": 42.34876,
       "lng": -71.30633
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.34876,-71.30633|marker-sm-50318A-9&scalebar=true&zoom=15&rand=-1630405505"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.34876,-71.30633|marker-sm-50318A-9&scalebar=true&zoom=15&rand=-1905823579"
     },
     {
      "street": "Regis College & Wellesley Street",
@@ -317,7 +317,7 @@
       "lat": 42.35198,
       "lng": -71.30511
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.35198,-71.30511|marker-sm-50318A-10&scalebar=true&zoom=15&rand=1318541332"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.35198,-71.30511|marker-sm-50318A-10&scalebar=true&zoom=15&rand=-503478692"
     }
    ]
   }
