@@ -16,9 +16,99 @@
  "results": [
   {
    "providedLocation": {
-    "location": "babson college"
+    "location": "wellesley college"
    },
    "locations": [
+    {
+     "street": "College Road",
+     "adminArea6": "",
+     "adminArea6Type": "Neighborhood",
+     "adminArea5": "Wellesley",
+     "adminArea5Type": "City",
+     "adminArea4": "",
+     "adminArea4Type": "County",
+     "adminArea3": "MA",
+     "adminArea3Type": "State",
+     "adminArea1": "US",
+     "adminArea1Type": "Country",
+     "postalCode": "02482",
+     "geocodeQualityCode": "B3CAA",
+     "geocodeQuality": "STREET",
+     "dragPoint": false,
+     "sideOfStreet": "N",
+     "linkId": "US/STR/p0/1575319",
+     "unknownInput": "",
+     "type": "s",
+     "latLng": {
+      "lat": 42.29621,
+      "lng": -71.32219
+     },
+     "displayLatLng": {
+      "lat": 42.29621,
+      "lng": -71.32219
+     },
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29621,-71.32219|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-85501398"
+    },
+    {
+     "street": "Wellesley Drive",
+     "adminArea6": "",
+     "adminArea6Type": "Neighborhood",
+     "adminArea5": "College Park",
+     "adminArea5Type": "City",
+     "adminArea4": "",
+     "adminArea4Type": "County",
+     "adminArea3": "MD",
+     "adminArea3Type": "State",
+     "adminArea1": "US",
+     "adminArea1Type": "Country",
+     "postalCode": "20740",
+     "geocodeQualityCode": "B3CCA",
+     "geocodeQuality": "STREET",
+     "dragPoint": false,
+     "sideOfStreet": "N",
+     "linkId": "US/STR/p1/6126989",
+     "unknownInput": "",
+     "type": "s",
+     "latLng": {
+      "lat": 38.98311,
+      "lng": -76.9138
+     },
+     "displayLatLng": {
+      "lat": 38.98311,
+      "lng": -76.9138
+     },
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=38.98311,-76.9138|marker-sm-50318A-2&scalebar=true&zoom=15&rand=-795630842"
+    },
+    {
+     "street": "Wellesley Court",
+     "adminArea6": "",
+     "adminArea6Type": "Neighborhood",
+     "adminArea5": "College Station",
+     "adminArea5Type": "City",
+     "adminArea4": "",
+     "adminArea4Type": "County",
+     "adminArea3": "TX",
+     "adminArea3Type": "State",
+     "adminArea1": "US",
+     "adminArea1Type": "Country",
+     "postalCode": "77840",
+     "geocodeQualityCode": "B3CCA",
+     "geocodeQuality": "STREET",
+     "dragPoint": false,
+     "sideOfStreet": "N",
+     "linkId": "US/STR/p3/4032773",
+     "unknownInput": "",
+     "type": "s",
+     "latLng": {
+      "lat": 30.63186,
+      "lng": -96.32556
+     },
+     "displayLatLng": {
+      "lat": 30.63186,
+      "lng": -96.32556
+     },
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=30.63186,-96.32556|marker-sm-50318A-3&scalebar=true&zoom=15&rand=438841022"
+    },
     {
      "street": "Babson College Drive",
      "adminArea6": "",
@@ -47,13 +137,13 @@
       "lat": 42.29822,
       "lng": -71.26543
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29822,-71.26543|marker-sm-50318A-1&scalebar=true&zoom=15&rand=2045103955"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29822,-71.26543|marker-sm-50318A-4&scalebar=true&zoom=15&rand=1357317348"
     },
     {
-     "street": "College Drive",
+     "street": "Wellesley Drive",
      "adminArea6": "",
      "adminArea6Type": "Neighborhood",
-     "adminArea5": "Babson Park",
+     "adminArea5": "Lake Worth",
      "adminArea5Type": "City",
      "adminArea4": "",
      "adminArea4Type": "County",
@@ -61,59 +151,119 @@
      "adminArea3Type": "State",
      "adminArea1": "US",
      "adminArea1Type": "Country",
-     "postalCode": "33827",
+     "postalCode": "33460",
      "geocodeQualityCode": "B3CCA",
      "geocodeQuality": "STREET",
      "dragPoint": false,
      "sideOfStreet": "N",
-     "linkId": "US/STR/p1/4669415",
+     "linkId": "US/STR/p2/4445825",
      "unknownInput": "",
      "type": "s",
      "latLng": {
-      "lat": 27.84321,
-      "lng": -81.53535
+      "lat": 26.63855,
+      "lng": -80.05224
      },
      "displayLatLng": {
-      "lat": 27.84321,
-      "lng": -81.53535
+      "lat": 26.63855,
+      "lng": -80.05224
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=27.84321,-81.53535|marker-sm-50318A-2&scalebar=true&zoom=15&rand=11822892"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=26.63855,-80.05224|marker-sm-50318A-5&scalebar=true&zoom=15&rand=2140025484"
     },
     {
-     "street": "Babson Court",
+     "street": "Wellesley Street",
      "adminArea6": "",
      "adminArea6Type": "Neighborhood",
-     "adminArea5": "Indianapolis",
+     "adminArea5": "Palo Alto",
      "adminArea5Type": "City",
      "adminArea4": "",
      "adminArea4Type": "County",
-     "adminArea3": "IN",
+     "adminArea3": "CA",
      "adminArea3Type": "State",
      "adminArea1": "US",
      "adminArea1Type": "Country",
-     "postalCode": "46268",
+     "postalCode": "94306",
      "geocodeQualityCode": "B3CCA",
      "geocodeQuality": "STREET",
      "dragPoint": false,
      "sideOfStreet": "N",
-     "linkId": "US/STR/p0/5691248",
+     "linkId": "US/STR/p2/3037328",
      "unknownInput": "",
      "type": "s",
      "latLng": {
-      "lat": 39.91978,
-      "lng": -86.2158
+      "lat": 37.42374,
+      "lng": -122.14969
      },
      "displayLatLng": {
-      "lat": 39.91978,
-      "lng": -86.2158
+      "lat": 37.42374,
+      "lng": -122.14969
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=39.91978,-86.2158|marker-sm-50318A-3&scalebar=true&zoom=15&rand=291804340"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=37.42374,-122.14969|marker-sm-50318A-6&scalebar=true&zoom=15&rand=1617778601"
     },
     {
-     "street": "Park Manor Way",
+     "street": "College Road & Wellesley Street",
      "adminArea6": "",
      "adminArea6Type": "Neighborhood",
-     "adminArea5": "Wellesley Hills",
+     "adminArea5": "Stoke-on-Trent",
+     "adminArea5Type": "City",
+     "adminArea4": "",
+     "adminArea4Type": "County",
+     "adminArea3": "ENG",
+     "adminArea3Type": "State",
+     "adminArea1": "GB",
+     "adminArea1Type": "Country",
+     "postalCode": "ST1",
+     "geocodeQualityCode": "I1CCA",
+     "geocodeQuality": "INTERSECTION",
+     "dragPoint": false,
+     "sideOfStreet": "N",
+     "linkId": "GB/XSTR/p0/590195",
+     "unknownInput": "",
+     "type": "s",
+     "latLng": {
+      "lat": 53.01636,
+      "lng": -2.17846
+     },
+     "displayLatLng": {
+      "lat": 53.01636,
+      "lng": -2.17846
+     },
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=53.01636,-2.17846|marker-sm-50318A-7&scalebar=true&zoom=15&rand=1022303786"
+    },
+    {
+     "street": "Wellesley Road",
+     "adminArea6": "",
+     "adminArea6Type": "Neighborhood",
+     "adminArea5": "Leven",
+     "adminArea5Type": "City",
+     "adminArea4": "",
+     "adminArea4Type": "County",
+     "adminArea3": "SCT",
+     "adminArea3Type": "State",
+     "adminArea1": "GB",
+     "adminArea1Type": "Country",
+     "postalCode": "KY8",
+     "geocodeQualityCode": "I1CCA",
+     "geocodeQuality": "INTERSECTION",
+     "dragPoint": false,
+     "sideOfStreet": "N",
+     "linkId": "GB/XSTR/p0/1044676",
+     "unknownInput": "",
+     "type": "s",
+     "latLng": {
+      "lat": 56.17444,
+      "lng": -3.03062
+     },
+     "displayLatLng": {
+      "lat": 56.17444,
+      "lng": -3.03062
+     },
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=56.17444,-3.03062|marker-sm-50318A-8&scalebar=true&zoom=15&rand=578634922"
+    },
+    {
+     "street": "Wellesley Street & Regis College",
+     "adminArea6": "",
+     "adminArea6Type": "Neighborhood",
+     "adminArea5": "Weston",
      "adminArea5Type": "City",
      "adminArea4": "",
      "adminArea4Type": "County",
@@ -121,23 +271,53 @@
      "adminArea3Type": "State",
      "adminArea1": "US",
      "adminArea1Type": "Country",
-     "postalCode": "02481",
+     "postalCode": "02493",
      "geocodeQualityCode": "I1CCA",
      "geocodeQuality": "INTERSECTION",
      "dragPoint": false,
      "sideOfStreet": "N",
-     "linkId": "US/XSTR/p1/912236",
+     "linkId": "US/XSTR/p2/1882721",
      "unknownInput": "",
      "type": "s",
      "latLng": {
-      "lat": 42.29767,
-      "lng": -71.26461
+      "lat": 42.34876,
+      "lng": -71.30633
      },
      "displayLatLng": {
-      "lat": 42.29767,
-      "lng": -71.26461
+      "lat": 42.34876,
+      "lng": -71.30633
      },
-     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.29767,-71.26461|marker-sm-50318A-4&scalebar=true&zoom=15&rand=-1346277154"
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.34876,-71.30633|marker-sm-50318A-9&scalebar=true&zoom=15&rand=-1630405505"
+    },
+    {
+     "street": "Regis College & Wellesley Street",
+     "adminArea6": "",
+     "adminArea6Type": "Neighborhood",
+     "adminArea5": "Weston",
+     "adminArea5Type": "City",
+     "adminArea4": "",
+     "adminArea4Type": "County",
+     "adminArea3": "MA",
+     "adminArea3Type": "State",
+     "adminArea1": "US",
+     "adminArea1Type": "Country",
+     "postalCode": "02493",
+     "geocodeQualityCode": "I1CCA",
+     "geocodeQuality": "INTERSECTION",
+     "dragPoint": false,
+     "sideOfStreet": "N",
+     "linkId": "US/XSTR/p2/1882733",
+     "unknownInput": "",
+     "type": "s",
+     "latLng": {
+      "lat": 42.35198,
+      "lng": -71.30511
+     },
+     "displayLatLng": {
+      "lat": 42.35198,
+      "lng": -71.30511
+     },
+     "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=4piLQbWbk4ruiwYv6BxmKeJUQQi3Lkap&type=map&size=225,160&locations=42.35198,-71.30511|marker-sm-50318A-10&scalebar=true&zoom=15&rand=1318541332"
     }
    ]
   }
