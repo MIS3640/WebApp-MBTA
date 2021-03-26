@@ -12,4 +12,4 @@ In order to use the bot, simply download the files and pip install all required 
 
 <h4>Reflection Link</h4>
 
-Read the reflection [here](https://duckduckgo.com)
+Read the reflection [here](https://github.com/asillis1/WebApp-MBTA/blob/master/reflection.md)
