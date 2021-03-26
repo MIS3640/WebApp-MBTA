@@ -18,7 +18,7 @@ def get_nearest_stop():
     if request.method == "POST":
         place_name = request.form['address']
         result = mbta_helper.find_stop_near(place_name)
-        if result:
+        if result != "Error":
             return render_template('station.html', result=result)
         else:
             return render_template("error.html")

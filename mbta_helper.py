@@ -43,6 +43,7 @@ def get_lat_long(place):
 # print(get_lat_long('63%20Whitehead%20Avenue,%20Hull,%20MA,%2002045'))
 # print(get_lat_long('Harvard%20University%20MA'))
 
+# GPS coordinates of Babson College, United States. Latitude: 42.2923 Longitude: -71.2567
 
 def get_nearest_station(latitude, longitude):
     """
@@ -55,14 +56,20 @@ def get_nearest_station(latitude, longitude):
     response_data = get_json(url)
     # pprint.pprint(response_data)
     # id = response_data['data'][0]['id']
-    station_name = response_data['data'][0]['attributes']['name']
-    wheelchair_accessible = response_data['data'][0]['attributes']['wheelchair_boarding']
-    if wheelchair_accessible == 0:
-        wheelchair_access = "Not wheelchair accessible"
-    else:
-        wheelchair_access = "Wheelchair accessible"
-    return station_name, wheelchair_access
+    try: 
+        station_name = response_data['data'][0]['attributes']['name']
+        wheelchair_accessible = response_data['data'][0]['attributes']['wheelchair_boarding']
+        if wheelchair_accessible == 0:
+            wheelchair_access = "Not wheelchair accessible"
+        else:
+            wheelchair_access = "Wheelchair accessible"
+        return station_name, wheelchair_access
+    except ValueError:
+        return "Error" 
+    except IndexError:
+        return "Error"
 
+print(get_nearest_station(42.2923, -71.2567))
 # print(get_nearest_station(42.348457,-71.082622))
 # print(get_nearest_station(42.3482677, -71.166336))
 
@@ -73,6 +80,7 @@ def find_stop_near(place_name):
     place_name = place_name.replace(" ", "%20")
     coordinates = get_lat_long(place_name)
     return get_nearest_station(*coordinates)
+    
 
 # start error handling here, i.e. what happens when put in babson college, and there is no result returned
 
@@ -83,7 +91,7 @@ def main():
     """
     You can test all the functions here
     """
-    address = '63 Whitehead Avenue, Hull, MA, 02045'
+    address = 'Babson College'
     # location = get_lat_long(address)
     # print(get_nearest_station(*location))
     print(find_stop_near(address))
