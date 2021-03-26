@@ -9,3 +9,7 @@ There are a number of additional packages required to properly run MBTA Helper B
 <h3>How To Use MBTA Helper Bot:</h3>
 
 In order to use the bot, simply download the files and pip install all required packages. Then, run the file "app.py" in the WebApp-MBTA folder. Click through to the flask development server that the file starts up. Then, simply type in the address you want to find MBTA stops nearby, and click submit to get the results!
+
+<h4>Reflection Link</h4>
+
+Read the reflection [here](https://duckduckgo.com)
