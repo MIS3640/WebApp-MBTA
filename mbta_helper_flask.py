@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
 def home():
-
     if request.method == 'POST':
         return render_template('index.html')
     else:
@@ -15,6 +14,7 @@ def home():
 
 
 @app.route('/stops', methods=['POST', 'GET'])
+
 def stops():
     location = request.args.get('location')
     stops = parse_json_station(location)
