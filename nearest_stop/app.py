@@ -1,15 +1,18 @@
-from flask import Flask,request
+from flask import Flask, render_template, request
 from assignment3 import find_stop_near
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
-def calculate():
+def closest_stop():
     if request.method == "POST":
-        place = request.form('place')
+        place = str(request.form['place'])
         nearest_stop = find_stop_near(place)
         if nearest_stop:
-            return nearest_stop
-    return 'fuck'
+            return render_template('result.html', 
+                nearest_stop=nearest_stop)
+    else:
+        return render_template('index.html')
+    return render_template('index_html')
 
 
 if __name__ == "__main__":
