@@ -47,7 +47,7 @@ def get_nearest_station(latitude, longitude, route_type=None):
     formatting requirements for the 'GET /stops' API.
     """
     # url = f'https://api-v3.mbta.com/stops/data/{index}/attributes/latitude and /data/{index}/attributes/longitude' % params
-     # data = get_json(f"https://api-v3.mbta.com/stops?page%5Blimit%5D=1&sort=-distance&filter%5Blatitude%5D={latitude}&filter%5Blongitude%5D={longitude}&filter%5Blocation_type%5D=1")
+    # data = get_json(f"https://api-v3.mbta.com/stops?page%5Blimit%5D=1&sort=-distance&filter%5Blatitude%5D={latitude}&filter%5Blongitude%5D={longitude}&filter%5Blocation_type%5D=1")
     import pprint
     from config import MBTA_API_KEY
     MBTA_API_K = MBTA_API_KEY
