@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = GeoForm()
-    if form.is_valid:
+    if form.validate():
         return render_template('mbta.html')
     return render_template('index.html', form=form)
 
