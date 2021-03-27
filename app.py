@@ -1,10 +1,5 @@
-"""
-
-"""
-
 from flask import Flask, render_template, redirect
 from forms import GeoForm
-
 
 app = Flask(__name__)
 
