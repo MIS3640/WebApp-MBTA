@@ -5,16 +5,13 @@
     <title>Amazing app to help you find nearest MBTA station</title>
 </head>
 <body>
-<h1>Hello</h1>
-<form method="post" name='place'>
-    {% if error %}
-    <p>Not a valid place name.</p>
-    {% if error %}
+<h1>Hello! This is a Nearest Stop Generator</h1>
+<form method="post" name='place_name'>
     <p>
-        Please enter the a name of a place or the closest address near you:
+        Please enter the closest address near you:
     </p>
     <p>
-        <input type="text" name="input_address">
+        <input type="text" name="place">
     </p>
     <p><input type="submit" value="Find the nearest station"></p>
 </form>
