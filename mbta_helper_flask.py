@@ -60,11 +60,11 @@ def get_nearest_station(location):
 def parse_json_station(location):
     station_data = get_nearest_station(location)
     if station_data['data'] == []:
-        return "No Close Stations"
+        return " There Are No Close Stations"
     else:
         handicap_accessibility = station_data['data'][0]['attributes']['wheelchair_boarding']
         if handicap_accessibility == 0:
-            handicap_str = 'Not Sure If Handicap Accessible'
+            handicap_str = 'Unsure If Handicap Accessible'
         elif handicap_accessibility == 1:
             handicap_str = 'Handicap Accessible'
         elif handicap_accessibility == 2:

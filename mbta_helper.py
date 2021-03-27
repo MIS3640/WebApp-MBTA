@@ -21,6 +21,8 @@ def locate_address():
 
 
 def get_geographical_data():
+    """This function locates the address that the user inputs and runs it
+     through the api in order to get the geographical data of the input"""
     address = locate_address()
     MAPQUEST_API_KEY = "c6SEWZsdBV6fJeVO2lGbNKI1SOBgdOn3"
     url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={address}'
@@ -31,6 +33,9 @@ def get_geographical_data():
 
 
 def coordinates():
+    """This function parses through the json package in order to just look at the first location 
+    and then extracts that locations longitude and latitude.
+    If the location is invalid, the code will respond saying so. """
     geographical_data = get_geographical_data()
     total_locations = len(geographical_data['results'][0]['locations'])
     coordinate_list = []
@@ -46,6 +51,8 @@ def coordinates():
 
 
 def get_nearest_station():
+    """This function uses the previous function to find the nearest station 
+    to the longitutde and latitude coordinates found in the json package."""
     coordinate_list = coordinates()
     latitude = coordinate_list[0]
     longitude = coordinate_list[1]
@@ -57,13 +64,15 @@ def get_nearest_station():
 
 
 def parse_json_station():
+    """This function also uses the previous function in order to find the station closest to the 
+    users coordinates and also tells the user if the MBTA station has handicap accessibility. """
     station_data = get_nearest_station()
     if station_data['data'] == []:
-        return "No Close Stations"
+        return "There Are No Close Stations"
     else:
         handicap_accessibility = station_data['data'][0]['attributes']['wheelchair_boarding']
         if handicap_accessibility == 0:
-            handicap_str = 'Not Sure If Handicap Accessible'
+            handicap_str = 'Unsure if Handicap Accessible'
         elif handicap_accessibility == 1:
             handicap_str = 'Handicap Accessible'
         elif handicap_accessibility == 2:
@@ -71,7 +80,6 @@ def parse_json_station():
         station_name = str(station_data['data'][0]['attributes']['name'])
         final_str = station_name + ': ' + handicap_str
         return final_str
-        
 
 
 if __name__ == '__main__':
