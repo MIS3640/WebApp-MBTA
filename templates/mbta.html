@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="content-section">
+		place name: {{place_name}} <br />
+		{% if station %}
+		Nearest MBTA station is <b> {{station}} </b><br />
+		wheelchair_accessible: {{wheelchair_accessible}}
+		{% else %}
+		Can not find nearest MBTA station.
+		{% endif %}
+	</div>
+{% endblock %}
