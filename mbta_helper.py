@@ -47,7 +47,7 @@ def get_nearest_station(position):
     See https://api-v3.mbta.com/docs/swagger/index.html#/Stop/ApiWeb_StopController_index for URL
     formatting requirements for the 'GET /stops' API.
     """
-    url = MBTA_BASE_URL + "?" + urllib.parse.urlencode({"api_key":MBTA_API_KEY,"filter[latitude]": position[0], "filter[longitude]": position[1]}) #filter[route_type]': route_type})
+    url = MBTA_BASE_URL + "?" + urllib.parse.urlencode({"api_key":MBTA_API_KEY,"filter[latitude]": position[0], "filter[longitude]": position[1], "filter[radius]": 0.02*5}) #filter[route_type]': route_type})
     station_name = get_json(url)["data"][0]["attributes"]["name"]
     wheelchair = get_json(url)['data'][0]['attributes']['wheelchair_boarding']
     if not wheelchair or wheelchair == 0: 
@@ -76,7 +76,7 @@ def main():
     """
     # print(get_lat_long("Allston"))
     # print(get_nearest_station(get_lat_long("Allston")))
-    print(find_stop_near("Allston"))
+    print(find_stop_near("231 Forest Street, Babson Park, MA"))
 
 
 if __name__ == '__main__':
