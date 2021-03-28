@@ -9,8 +9,6 @@ import urllib.parse
 'Chelsea,MA'
 'Brookline,MA'
 
-print('Input your current location to find the nearest MBTA stop')
-name = input()
 def lat_long(location): 
     """
     Function that gets the information of a location based on its name. 
@@ -20,7 +18,7 @@ def lat_long(location):
     #Imports data from the mapquestapi
     MAPQUEST_API_KEY = 'XxtdAMBvWmSKhAKu0wu0kMXQT8gbOp6b'
     # url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=Babson%20College'
-    url = (f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={name}')
+    url = (f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location={location}')
     f = urllib.request.urlopen(url)
     response_text = f.read().decode('utf-8')
     data_latlong = json.loads(response_text)
@@ -72,9 +70,19 @@ def stop(datas):
 # stop(data_latlong)
 # print('lat2', lat)
 # print('long2', long)
-def main():
+
+def mbta_helper():
+    """
+    Function that adds the input at the beggining and puts the two previous functions together
+    """
+    print('Input your current location to find the nearest MBTA stop')
+    name = input()
     lat_long(name)
     stop(data_latlong)
+
+
+def main():
+    mbta_helper()
 
 
 if __name__ == "__main__":
@@ -85,3 +93,4 @@ if __name__ == "__main__":
 'Wellesley,MA'
 'Chelsea,MA'
 'Brookline,MA'
+
