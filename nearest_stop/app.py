@@ -6,7 +6,11 @@ app = Flask(__name__)
 def closest_stop():
     if request.method == "POST":
         place = str(request.form['place'])
-        nearest_stop = find_stop_near(place)
+        try:
+            route_type = int(request.form['route_type'])
+            nearest_stop = find_stop_near(place, route_type)
+        except:
+            nearest_stop = find_stop_near(place)
         if nearest_stop:
             return render_template('result.html', 
                 nearest_stop=nearest_stop)
