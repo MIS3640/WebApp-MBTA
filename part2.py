@@ -1,8 +1,8 @@
 # I am currently working on it, I am trying to figure out how to get the forms 
 # to show. I just wanted to make sure you guys saw at least something of progress on this section.
+# only after line 59, before that everything seems all set from my side - Sakshi 
 
-
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request 
 
 
 
@@ -18,20 +18,23 @@ def greeting(name=None):
 
 
 
-#form Code
-#--in the works--
-# from flask_wtf import FlaskForm
-# from wtforms import StringField
-# from wtforms.validators import DataRequired
+#form Code 
+from flask_wtf import FlaskForm
+from wtforms import StringField
+from wtforms.validators import DataRequired
 
-# class MyForm(FlaskForm):
-#     Name= StringField('name', validators = [DataRequired()])
+class MyForm(FlaskForm):
+    Name= StringField('name', validators = [DataRequired()])
 
-# @app.route('/location', methods = ['POST'])
-# def location():
-#     email = request.form['email']
-#     print('The email address is'" +email+")
-#     return redirect('/')
+@app.route('/location', methods = ['POST'])
+def location(): 
+    form = LocationForm(request.form) 
+    if request.method == 'POST' and form.validate(): 
+        user = User(form.username.data, form.email.data) 
+        db_session.add(user) 
+        flash('The email address is'" +email+")
+        return redirect(url_for('login')) 
+    return render_template('location', form=form) 
 
 @app.route('/form')
 def location_form():
@@ -53,7 +56,7 @@ app.run(host='localhost', port=5000)
 
 
 # data page
-# @app.route('/mbta_station')
+@app.route('/mbta_station')
 
 
 # ''' THe Flask backend withll dandle the request to POST/nearest_mbta. 
@@ -75,4 +78,3 @@ app.run(host='localhost', port=5000)
 #     myobj = {'somekey': 'somevalue'}
 
 #     x = request.ost(url, data = myobj)
-
