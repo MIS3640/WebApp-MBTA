@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    """Ctreate the index page of the website requesting place name from user and returns the information about 
+    the closet MBTA station and wheelchair accessibility for the station"""
     # print(request.form)
     form = GeoForm(request.form)
     if form.validate(): 
@@ -27,6 +29,7 @@ def index():
 
 @app.route('/test', methods=['GET'])
 def test(): 
+    """create test page for the mbta.html"""
     place_name = 'boston'
     station =  'ABC'
     wheelchair_accessible = 'Accessible'
@@ -37,6 +40,7 @@ def test():
 
 @app.route('/test_empty', methods=['GET'])
 def test_empty(): 
+    """create test page for the mbta.html"""
     place_name = 'boston'
     station =  ''
     wheelchair_accessible = ''
