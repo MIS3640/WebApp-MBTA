@@ -1,5 +1,4 @@
-from flask import Flask, render_template, redirect
-from flask import request
+from flask import Flask, render_template, redirect, request
 from forms import GeoForm
 from mbta_helper import find_stop_near
 
