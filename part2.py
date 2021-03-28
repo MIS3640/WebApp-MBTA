@@ -2,41 +2,70 @@
 # to show. I just wanted to make sure you guys saw at least something of progress on this section.
 
 
-from flask import Flask
-import requests
+from flask import Flask, render_template, request
 
-# import part1
+
+
 app = Flask(__name__)
 
-#index page
+
+#index page greeting
 @app.route('/')
 def greeting(name=None):
     if name:
         return f"hello, {name}!"
-    return "Hello, world!"
+    return "Hello! Welcome to the site!"
+
+
 
 #form Code
 #--in the works--
-from flask import Flask, render_template, flash, request
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
+# from flask_wtf import FlaskForm
+# from wtforms import StringField
+# from wtforms.validators import DataRequired
 
-class reusableform(Form):
-    name = TextField('Name:', validators=[validators.required()])
+# class MyForm(FlaskForm):
+#     Name= StringField('name', validators = [DataRequired()])
 
-    @app.route('/', methods=['GET', 'POST'])
-    def location_form():
-        form = reusableform(request.form)
+# @app.route('/location', methods = ['POST'])
+# def location():
+#     email = request.form['email']
+#     print('The email address is'" +email+")
+#     return redirect('/')
 
-        # print form.errors
-        if request.method == 'POST':
-            name = request.form['name']
-            print (name)
+@app.route('/form')
+def location_form():
+    return render_template('index.html')
 
-        if form.validate():
-            flash('Hello' + name)
-        else:
-            flash('All the form fields are required. ')
-        return render_template('hello.html' , form=form)
+@app.route('/data/', methods = ['POST', 'GET'])
+def data():
+    if request.method == 'GET':
+        return f"The URL /data is accessed directly. Try going to '/form' to submit form"
+    if request.method == 'POST':
+        form_data = request.form
+        return render_template('data.html', form_data = form_data)
+
+app.run(host='localhost', port=5000)
+
+
+
+
+
+
+# data page
+# @app.route('/mbta_station')
+
+
+# ''' THe Flask backend withll dandle the request to POST/nearest_mbta. 
+# Then app will render a mbta_station page fo rthe user"
+# presenting nearest MBTA stop and whether it is wheelchair accesble. This step requires you to use code from part 1
+# '''
+
+
+# if __name__ == "__main__":
+#     app.run()
+
+
 
 
 
@@ -47,5 +76,3 @@ class reusableform(Form):
 
 #     x = request.ost(url, data = myobj)
 
-if __name__ == "__main__":
-    app.run(debug=True)
