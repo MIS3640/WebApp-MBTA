@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Your Results</title>
+</head>
+<body>
+<style>
+
+body{background-color:lightblue; opacity: 95%;} 
+p{text-align: center; font-size: 60pt;color: navy;}
+</style>
+
+<h2 align="center">Your search place name is  <font color="Navy">{{place_name}}</font> , and the lat and lng of this place is <font color="Navy">{{lat}},{{lng}}</font>,</h2>
+<h2 align="center">
+    {% if name==none %}
+        the nearest stop  <font color="Navy">does not exist in 5 miles</font>,
+    {% else %}
+        the nearest stop is <font color="Navy">{{name}}</font>,
+    {% endif %}
+{% if wheelchair_boarding==1 %}
+and wheelchair is <font color="Navy">accessible</font>.
+{% endif %}
+{% if wheelchair_boarding==2 %}
+and wheelchair is <font color="Navy">inaccessible</font>.
+{% endif %}
+{% if wheelchair_boarding==0 %}
+and wheelchair  accessible is <font color="Navy">unknown</font>.
+{% endif %}</h2>
+<p>(〃'▽'〃)</p>
+<h2 style="text-align:center"><a href="http://127.0.0.1:5000">Click and search again</a> </h2>
+
+
+</body>
+</html>
