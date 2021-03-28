@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <p>This app will help you find nearest MBTA station</p>
+    <p>Hello, this website will help you find nearest MBTA station!</p>
     <span style="display:inline-block; width: 200px; height: 100px"></span>
     <form method="POST" name="mbta_station" action = '{{ url_for("form")}}'>
         <p>Your address: <input type = "text" name = "place_name" id = "place_name"></p>
