@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Amazing app to help you find nearest MBTA station</title>
+    <title>Search Your Place</title>
+
 </head>
 <body>
+
+
+<style>
+	body{
+	background-color:lightblue;
+	opacity: 95%;
+	}
+    div{
+	text-align: center; 
+	border-radius: 20px;
+	width: 800px;
+	height:300px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+</style>
+
+
+    <h1 style="text-align:center;color:oldlace"> Hello,user. Please enter your address and search for the nearest stop</h1>
+    <hr>
+<div>
+<form action="nearest" method="post">
+  <p text-align="center" text-font="20pt">Place Name: <input type="text" name="place_name" /></p>
+  <input type="submit" value="search" />
+</form>
+</div>
+
 
 </body>
 </html>
