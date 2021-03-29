@@ -1,6 +1,9 @@
 Raphael Dunand, Sakshi Haria, Liliana Reyes Medrano 
+
 MIS3640 
+
 Professor Zhi Li 
+
 03/28/2021
 # Assignment 3 Reflection 
 # Project Overview: 
