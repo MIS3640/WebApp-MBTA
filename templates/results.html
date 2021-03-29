@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        p{color:rgba(5, 68, 5, 0.945);text-shadow:1px 1px white ;font-weight: bold; font-size: 25px; font-family: monospace; text-align: center;}
+    </style>
+
+</head>
+
+<body>
+    <span style="display:inline-block; width: 200px; height: 100px"></span>
+    <p>Within {{radius}} Miles of {{place_name}}:</p>
+    <p>Route Type: {{route_type}}</p>
+    <p>The Nearest Station is: {{station_name}}</p>
+    <p>Wheelchair Accessibility: {{wheelchair_accessibility}}</p>
+
+    <form>
+        <input type="button" value="Return to Search Page" onclick="history.back()">
+    </form>
+
+
+   </body>
+
+</html>

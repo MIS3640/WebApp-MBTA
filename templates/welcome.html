@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazing app to help you find nearest MBTA station</title>
+    <style>
+        h1{text-align: center;color:rgba(5, 68, 5, 0.945);text-shadow:1px 1px white ;font-weight: bold; font-size: 40px; font-family: Georgia;}
+        p{color:rgba(5, 68, 5, 0.945);text-shadow:1px 1px white ;font-weight: bold; font-size: 25px; font-family: monospace; text-align: center;}
+        div{background-color: rgb(194, 187, 172); width:60%; margin-left: auto; margin-right: auto;}
+        img{width:30%;}
+    </style>
+</head>
+<body>
+    <h1>Hello, this website will help you find the nearest MBTA station!</h1>
+    <br>
+    <p style="text-align: center;"><img src="https://pioneerinstitute.org/wp-content/uploads/RedLineCharlesMGH.jpg" alt="mbta"></p>
+    <div>
+        <form method="POST" name="mbta_station" action = '{{ url_for("form")}}'>
+            <p>Your Address/Name of Place: <input type = "text" name = "place_name" id = "place_name"></p>
+            <p>Radius (In Miles): <input type="number" step="0.1" name = "radius" id = "radius"></p>
+            <p>Route Type: <select name = "route_type" id = "route_type">
+                <option value = "0">Light Rail</option>
+                <option value = "1">Heavy Rail</option>
+                <option value = "2">Commuter Rail</option>
+                <option value = "3">Bus</option>                
+                <option value = "4">Ferry</option>
+            </select>
+            <p><input type = "Submit" value = "Submit" /></p>
+       
+    </form>
+    <div>
+
+
+
+</body>
+</html>
+
+
