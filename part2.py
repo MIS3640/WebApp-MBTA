@@ -35,12 +35,13 @@ class MyForm(FlaskForm):
 
 
 
-@app.route('/')
+@app.route('/', methods = ['POST', 'GET'])
 def hello():
     # return render_template ('hello.html')
     form = MyForm() 
-    if request.method == 'POST' and form.validate():   
-        return redirect(url_for('login')) 
+    # if request.method == 'POST' and form.validate(): 
+    #     data - request.form[""]  
+    #     return redirect(url_for('/data')) 
     return render_template('signup.html', form=form) 
 
 
@@ -51,18 +52,15 @@ def hello():
 
 @app.route('/data/', methods = ['POST', 'GET'])
 def data():
-    if request.method == 'GET':
-        return f"The URL /data is accessed directly. Try going to '/form' to submit form"
     if request.method == 'POST':
-        print()
+        return f"The URL /data is accessed directly. Try going to '/form' to submit form"
+    if request.method == 'GET':
     # if request.method == 'POST':
         # form_data = request.form
-        return print("it is a post ")
+        print("it is a post ")
 
 app.run(host='localhost', port=5000)
 
-
-os.system('python part1.py')
 
 
 
