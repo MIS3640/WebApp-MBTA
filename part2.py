@@ -18,7 +18,7 @@ import part1
 
 #index page greeting and Form Code
 class MyForm(FlaskForm):
-    """Contact form."""
+    """Contact/Location form."""
     username = StringField(
         'Username',
         [DataRequired()]
@@ -37,6 +37,7 @@ class MyForm(FlaskForm):
 
 @app.route('/', methods = ['POST', 'GET'])
 def hello():
+    "this function is reading the html page to allow the user to fill out the form for a designated location"
     # return render_template ('hello.html')
     form = MyForm() 
     # if request.method == 'POST' and form.validate(): 
@@ -46,14 +47,27 @@ def hello():
 
 
 
-
+#backend
 #POST submission
 # os.system('python part1.py')
 
-@app.route('/data/', methods = ['POST', 'GET'])
+@app.route('/nearest_mbta')
+def extract_data(location):
+    ""
+
+
+
+
+
+@app.route('/mbta_station', methods = ['POST', 'GET'])
+#TODO: create a link between the data of Part1 to /mbta_station 
 def data():
+    """This function is presenting the data that was extracted from Part1"""
     if request.method == 'POST':
-        return f"The URL /data is accessed directly. Try going to '/form' to submit form"
+        f = open('part1.py')
+        for line in f:
+            print(line)
+        # return f"The URL /data is accessed directly. Try going to '/form' to submit form"
     if request.method == 'GET':
     # if request.method == 'POST':
         # form_data = request.form
