@@ -1,0 +1,29 @@
+!--In order to complete this, according to research, we need to store the infomration for each location 
+into a dictionary or file and create a link to that file through the previous route using the redirect code and specifying the 
+data that we are looking at 
+
+
+Example that was seen:
+
+from flask import Flask, render_template, request, jsonify, url_for, redirect
+
+app = Flask(__name__)
+
+@app.route('/', methods = ['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        date = request.form.get('date')
+        return redirect(url_for('booking', date=date))
+    return render_template('main/index.html')
+
+
+@app.route('/booking')
+def booking():
+    date = request.args.get('date', None)
+    return render_template('main/booking.html', date=date)    
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+--!
