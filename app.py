@@ -23,7 +23,7 @@ def form():
         route_type = request.form.get("route_type")
         station_name, wheelchair_accessibility = mbta_helper.find_stop_near(place_name, radius,route_type)
         return render_template("results.html", station_name=station_name,
-                               wheelchair_accessibility=wheelchair_accessibility, radius = radius, route_type = route_type)
+                               wheelchair_accessibility=wheelchair_accessibility, radius = radius, route_type = route_type, place_name = place_name)
     return render_template("welcome.html")
 
 

@@ -60,8 +60,8 @@ def get_nearest_station(position,radius,route_type):
         elif wheelchair == 2:
             wheelchair_accessible = "No riders in wheelchairs can be accommodated on this trip."
     except:
-        station_name = "None"
-        wheelchair_accessible = "N/A"
+        station_name = "N/A, sorry, this location does not have a nearby MBTA station. Please search again."
+        wheelchair_accessible = "N/A."
     return station_name, wheelchair_accessible
 
 
