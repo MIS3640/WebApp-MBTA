@@ -1,5 +1,4 @@
 **Project Writeup and Reflection**
-
 **Project Overview** [~1 paragraph]
 *Write a short abstract describing your project. Include all the extensions to the basic requirements.*
 
