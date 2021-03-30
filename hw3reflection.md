@@ -1,0 +1,15 @@
+Abegail Santos 
+
+Homework 3 - MIS3640 
+
+Spring 2021
+
+**Project Overview** 
+
+This project is a web application based on a programming tool that locates the nearest MBTA stop to a particular location and informs the user whether it is accessible by wheelchair or not. More specifically, the web application welcomes the user with a description of the app and a form where users can input their location. If the program finds an MBTA stop, the web app will redirect the user to a page that displays the station name and the wheelchair accesibilility information. If it cannot find a nearby MBTA stop or if the user input is invalid, the web app will redirect the user to a page that displays an error message. In building this project, I utilized APIs of MapQuest and MBTA-realtime, which allows the program to retrieve the latitude and longitude of a place and information about MBTA stops. I also used Flask to build the web app and integrate an interactive HTML to the Python code.  
+
+**Project Reflection** 
+
+Having decided to work on this project alone, I initially thought that I would be at a significant disadvantage. I was personally intimidated by the detailed instructions so I asked professor for an extension for the deadline. However, I realized that I had all the tools and resources I needed to complete this project — I could utilize skills gained from Web Tech course. As a result, I was able to create and design the HTML templates without much difficulties. As for the challenges in the process, I had to review in-class concepts and self-study outside class hours. What took up most of my time was figuring out how to use Flask and understanding the logic behind the pieces of code. I personally found the Flask documentation difficult to read, so I resorted to learning from Youtube Tutorials and other online resources such as those from [pythonise.com](http://pythonise.com). Another obstacle in the process was learning how to work with forms in Flask. Although I had some knowldge on HTML from my Web Tech class,  I had to review the concepts once again and read supplementary guiding articles. I'm glad to have encountered these challenges as I'd need to learn in more in-depth for my final project, which also involves developing a web app. On top of all of these, working on this project alone was an additional burden since I was responsible for doing all of the tasks. I did not have any teammates to be accountable for, so I also had issues with time management. This experience taught me the importance of setting deadlines for myself for my final project and sticking to it.
+
+I believe that I could have improved my project by providing additional information to the user besides the station name and wheelchair accessibility information, such as the train schedule, distance, or directions. I coud have also added pictures in the home page to improve the UI. Another useful thing for this web application could be utlizing Google Maps API for the results page which would display a map outlining the distance from the input location and the nearest MBTA stop.
